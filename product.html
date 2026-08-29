@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="product.css">
+    <style>.site-header,.utility-bar,.main-bar { background: #00b3aa; color: #fff; }.site-header a,.utility-bar a,.main-bar a { color: #fff; }.country { border-color: rgba(255,255,255,.7); background: #fff; color: #183b5f; }.main-bar { background: #fff; color: #183b5f; }.main-bar a { color: #183b5f; }.main-bar nav a:hover { color: #d77d81; }.logo { background: #fff; padding: 9px 14px; }</style>
+    <title>Product Details - October Printz</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="utility-bar"><nav><a href="index.html">Home</a><a href="products.html">All Products</a></nav><span>Need help? <a href="tel:08023628784">08023628784</a></span><span class="country">NG Nigeria</span></div>
+        <div class="main-bar"><a class="logo" href="index.html"><img src="october_printz_logo_transparent.png" alt="October Printz"></a><nav><a href="products.html">All Products</a><a href="cost calculator/cost.html">Cost Calculator</a><a href="track order/track.html">Track Orders</a></nav><a class="back-link" href="products.html">Back to products</a></div>
+    </header>
+    <main>
+        <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="products.html">All Products</a><span>/</span> Product details</div>
+        <section class="product-hero">
+            <img class="product-image" id="productImage" src="images/buisness card.jpg" alt="Two-Sided Business Cards">
+            <div class="product-copy">
+                <h1 id="productName">Two-Sided Business Cards</h1>
+                <p id="productDescription">Order your Two-sided Business Cards by simply uploading your own design or picking from our amazing collection of free templates.</p>
+                <p class="spec-copy"><strong>Material:</strong><br><span id="material">3.5 by 2 inches, 300 gsm matte card paper stock with 600 gsm options</span></p>
+                <p class="spec-copy"><strong>Finishing:</strong><br><span id="finishing">Matte Lamination and round corner options</span></p>
+                <div class="order-controls"><label for="quantity">Quantity</label><div class="order-line"><select id="quantity"><option value="1">100</option><option value="2">200</option><option value="5">500</option><option value="10">1,000</option></select><button class="order-button" id="orderButton" type="button">Order Now <span>›</span></button></div></div>
+            </div>
+        </section>
+        <section class="detail-grid">
+            <div class="detail-section"><h2>Specifications</h2><div class="options-grid"><div class="option-group"><h3>Paper Thickness</h3><div class="option-list"><button class="option selected" type="button"><img src="images/buisness card.jpg" alt="300gsm stock"><span>300gsm Stock</span></button><button class="option" type="button"><img src="images/buisness card.png" alt="600gsm stock"><span>Super Thick 600gsm</span></button></div></div><div class="option-group"><h3>Corners</h3><div class="option-list"><button class="option selected" type="button"><img src="images/buisness card.jpg" alt="Square corner"><span>Square Corner</span></button><button class="option" type="button"><img src="images/buisness card.png" alt="Rounded corner"><span>Rounded Corner</span></button></div></div></div></div>
+            <div class="detail-section shipping"><h2>Shipping</h2><div class="option-group"><h3>Shipping</h3><div class="option-list"><button class="option selected" type="button"><img src="images/packaging.jpg" alt="Standard shipping"><span>Standard</span></button><button class="option" type="button"><img src="images/bag branding.jpeg" alt="Express shipping"><span>Express</span></button></div></div></div>
+        </section>
+        <section class="faq-reviews"><div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><span>When will i receive my order?</span><button type="button">+</button></div><div class="faq-answer">Most standard orders are ready within 3-5 working days.</div><div class="faq-item"><span>What is the minimum quantity of cards?</span><button type="button">+</button></div><div class="faq-answer">The minimum quantity is 100 pieces.</div><div class="faq-item"><span>How do I place an order on your website?</span><button type="button">+</button></div><div class="faq-answer">Choose your quantity and select Order Now to continue.</div><div class="faq-item"><span>How can I see a physical sample?</span><button type="button">+</button></div><div class="faq-answer">Contact the studio to request a physical sample before production.</div><div class="faq-item"><span>What type of paper lamination do you offer?</span><button type="button">+</button></div><div class="faq-answer">We offer matte lamination and other finishing options on request.</div></div></section>
+    </main>
+    <div class="sticky-order"><div class="sticky-product"><img id="stickyImage" src="images/buisness card.jpg" alt=""><div><strong id="stickyName">Two-Sided Business Cards</strong><span>300gsm Stock | Square Corner | Standard</span></div></div><strong class="sticky-total" id="total">₦15,100</strong><button class="sticky-button" id="stickyButton" type="button">Order Now <span>›</span></button></div>
+    <script>
+        const params = new URLSearchParams(location.search);
+        const productName = params.get('name') || 'Two-Sided Business Cards';
+        const productImage = params.get('image') || 'images/buisness card.jpg';
+        const basePrice = Number(params.get('price')) || 15100;
+        const unit = params.get('unit') || 'per 100';
+        document.title = `${productName} - October Printz`;
+        document.querySelector('#productName').textContent = productName;
+        document.querySelector('#stickyName').textContent = productName;
+        document.querySelector('#productImage').src = productImage;
+        document.querySelector('#productImage').alt = productName;
+        document.querySelector('#stickyImage').src = productImage;
+        const quantity = document.querySelector('#quantity');
+        const total = document.querySelector('#total');
+        function updateTotal() { total.textContent = `₦${(basePrice * Number(quantity.value)).toLocaleString('en-NG')}`; }
+        quantity.addEventListener('change', updateTotal);
+        document.querySelectorAll('.option-list').forEach((list) => list.querySelectorAll('.option').forEach((option) => option.addEventListener('click', () => {
+            list.querySelector('.selected').classList.remove('selected');
+            option.classList.add('selected');
+        })));
+        document.querySelectorAll('.faq-item').forEach(item => item.addEventListener('click', () => item.classList.toggle('open')));
+        document.querySelector('#orderButton').addEventListener('click', () => location.href = `cost calculator/cost.html?product=${encodeURIComponent(productName)}`);
+        document.querySelector('#stickyButton').addEventListener('click', () => location.href = `cost calculator/cost.html?product=${encodeURIComponent(productName)}`);
+        updateTotal();
+    </script>
+</body>
+</html>

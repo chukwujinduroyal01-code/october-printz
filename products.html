@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="products.css">
+    <style>.utility-bar nav { gap: 12px; }.utility-bar nav a { border: 1px solid var(--line); border-radius: 30px; padding: 10px 16px; }</style>
+    <style>.catalog-header,.utility-bar,.main-bar { background: #00b3aa; color: #fff; }.catalog-header a,.utility-bar a,.main-bar a { color: #fff; }.utility-bar nav a,.country { border-color: rgba(255,255,255,.7); background: #fff; color: #183b5f; }.main-bar { background: #fff; color: #183b5f; }.main-bar a { color: #183b5f; }.main-bar nav a:hover { color: #d77d81; }.logo { background: #fff; padding: 9px 14px; }</style>
+    <title>All Products - October Printz</title>
+</head>
+<body>
+    <header class="catalog-header">
+        <div class="utility-bar"><nav><a href="index.html#quote">Cost Calculator</a><a href="track order/track.html">Track Orders</a></nav><span>Need help? <a href="tel:08023628784">08023628784</a></span><span class="country">NG Nigeria</span></div>
+        <div class="main-bar"><a class="logo" href="index.html"><img src="october_printz_logo_transparent.png" alt="October Printz"></a><nav><a href="index.html#work">All Products</a><a href="project.html">Become a Reseller</a><a href="index.html#quote">Marketplace</a><a href="index.html#quote">Sign in</a><a href="index.html#quote">Create Account</a><a class="cart" href="index.html#quote" aria-label="Shopping cart">🛒</a></nav></div>
+    </header>
+    <main>
+        <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span> All Products</div>
+        <section class="catalog-heading"><div><p class="kicker"><span></span> October Printz collection</p><h1>All <em>products</em></h1></div><label class="catalog-search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search for any product" aria-label="Search for any product"></label></section>
+        <section class="catalog-layout">
+            <aside class="filter-panel"><h2>Filter</h2><div class="filter-rule"></div><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="cards">Business Cards</button><button class="filter" data-filter="letterhead">Letterhead</button><button class="filter" data-filter="envelopes">Envelopes</button><button class="filter" data-filter="flyers">Flyers &amp; Handbills</button><button class="filter" data-filter="bags">Bags</button><button class="filter" data-filter="wedding">Wedding Stationery</button><button class="filter" data-filter="stickers">Stickers</button><button class="filter" data-filter="notepads">Notepads and Jotters</button><button class="filter" data-filter="mugs">Mugs</button><button class="filter" data-filter="banners">Banners &amp; Large Format</button><button class="filter" data-filter="posters">Posters</button><button class="filter" data-filter="folders">Presentation Folders</button><button class="filter" data-filter="brochures">Brochures</button><button class="filter" data-filter="id-cards">ID Cards</button><button class="filter" data-filter="gifts">Corporate Gifts</button></aside>
+            <div class="catalog-content"><div class="results-heading"><h2 id="categoryTitle">Featured products</h2><span id="resultCount">39 products</span></div><div class="catalog-grid" id="catalogGrid"></div><p class="empty-state" id="emptyState">No products match your search.</p></div>
+        </section>
+    </main>
+    <script>
+        const products = [
+            ['cards','Business Cards','Sharp, memorable business cards printed on quality stock.','images/buisness card.jpg','₦15,100','per 100'],
+            ['cards','Premium Business Cards','A refined finish for brands that care about every detail.','images/buisness card.png','₦22,500','per 100'],
+            ['cards','One-Sided Business Cards','Simple, professional cards for everyday business introductions.','images/buisness card.jpg','₦11,000','per 100'],
+            ['cards','Folded Business Cards','More room for your story, services and contact details.','images/buisness card.png','₦26,000','per 100'],
+            ['cards','Luxury Business Cards','Premium card stock and finishing for a memorable first impression.','images/download (1).jpg','₦32,000','per 100'],
+            ['wedding','Wedding Invitation Cards','Beautiful invitation cards designed for your special celebration.','images/download (1).jpg','₦65,000','per 50'],
+            ['letterhead','A4 Letterhead','Professional letterheads for proposals, invoices and correspondence.','images/printed.jpg','₦12,000','per 100'],
+            ['envelopes','Branded Envelopes','Give every document a polished branded finish.','images/packaging.jpg','₦22,000','per 100'],
+            ['flyers','Flyers & Handbills','Bold, flexible print for launches, events and promotions.','images/flyer.jpg','₦18,500','per 100'],
+            ['bags','Pillow Bags (A4)','Pillow boxes with a polished branded finish.','images/bag branding.jpeg','₦45,000','per 50'],
+            ['bags','Pillow Bags (A5)','Compact branded bags for product gifting.','images/bag brandnng.png','₦38,000','per 50'],
+            ['bags','Small Paper Bags (A5)','Smart paper bags for everyday retail orders.','images/packaging.jpg','₦32,000','per 50'],
+            ['bags','X-Large Paper Bags','Roomy branded bags for larger products.','images/bag branding.jpeg','₦65,000','per 50'],
+            ['bags','Wine Paper Bags','Elegant carriers for bottles and celebration gifts.','images/bag brandnng.png','₦42,000','per 50'],
+            ['bags','A4 Branded Paper Bags','A4 bags made for boutiques and campaigns.','images/bag branding.jpeg','₦35,000','per 50'],
+            ['bags','Black Tote Bags','Strong reusable tote bags with bold custom branding.','im5.jpg','₦35,000','per 50'],
+            ['bags','A4 Courier Bags','Durable A4 courier bags for secure branded deliveries.','images/bag branding.jpeg','₦32,000','per 50'],
+            ['bags','A3 Courier Bags','Large courier bags for bigger products and documents.','images/bag brandnng.png','₦38,000','per 50'],
+            ['wedding','Wedding Invitations','Beautiful stationery for celebrations made to remember.','images/download (1).jpg','₦65,000','per 50'],
+            ['stickers','Label Stickers','Durable adhesive labels for products, packaging and events.','images/download.jpg','₦17,000','per 100'],
+            ['stickers','Round Stickers','Clean, vivid round stickers for a signature finish.','images/download.jpg','₦17,000','per 100'],
+            ['notepads','Branded Notepads','Useful branded notepads for desks, meetings and gifting.','images/printed.jpg','₦45,000','per 50'],
+            ['notepads','Jotters','Practical custom jotters that keep your brand close.','images/printed.jpg','₦85,000','per 50'],
+            ['mugs','Simple Mugs','Everyday ceramic mugs printed with your artwork.','c66749a1-6100-46e8-b5e4-2307f6904f64.png','₦47,400','per 10'],
+            ['banners','Roll-Up Banner (85 x 200cm)','Portable display graphics for shops and events.','images/big rollup banner.png','₦78,000','per 1'],
+            ['banners','A0 Poster Banner','Large-format artwork with crisp, vivid color.','images/postcard.jpg','₦35,000','per 1'],
+            ['banners','Outdoor Vinyl Banner','Weather-ready branding for outdoor visibility.','images/big rollup banner.png','₦95,000','per 1'],
+            ['banners','Step-and-Repeat Backdrop','A branded photo wall for launches and events.','images/big rollup banner.png','₦125,000','per 1'],
+            ['banners','Retractable Premium Banner','A refined retractable display for presentations.','images/big rollup banner.png','₦110,000','per 1'],
+            ['banners','A1 Promotional Poster','A bold poster format for campaigns and offers.','images/flyer.jpg','₦24,000','per 10'],
+            ['banners','Mesh Fence Banner','High-impact large format for open spaces.','images/big rollup banner.png','₦88,000','per 1'],
+            ['banners','Tabletop Banner','A compact branded sign for counters and desks.','images/big rollup banner.png','₦42,000','per 1'],
+            ['banners','Flag Banner','Movement and color for entrances and events.','images/big rollup banner.png','₦72,000','per 1'],
+            ['banners','Custom Wall Graphic','Transform a blank wall into a brand moment.','images/postcard.jpg','₦145,000','per 1'],
+            ['posters','A3 Posters','Large, crisp posters for campaigns and announcements.','images/postcard.jpg','₦22,000','per 10'],
+            ['folders','Presentation Folders','Organise proposals and documents with a branded cover.','images/trifold-brochure-printing.png','₦65,000','per 50'],
+            ['brochures','Tri-Fold Brochures','Tell your story clearly across a compact folded format.','images/trifold-brochure-printing.png','₦28,000','per 100'],
+            ['id-cards','Plastic ID Cards','Professional staff and event identification cards.','images/buisness card.png','₦60,000','per 50'],
+            ['gifts','Corporate Gift Packs','Thoughtful branded gifts for clients, teams and partners.','images/bag brandnng.png','₦125,000','per 10']
+        ];
+        const grid = document.querySelector('#catalogGrid'); const search = document.querySelector('#search'); const count = document.querySelector('#resultCount'); const title = document.querySelector('#categoryTitle'); const empty = document.querySelector('#emptyState'); let activeFilter = 'all';
+        const filterLabels = Object.fromEntries([...document.querySelectorAll('.filter')].map(button => [button.dataset.filter, button.textContent]));
+        function render() { const query = search.value.trim().toLowerCase(); const visible = products.filter(([category, name, description]) => (activeFilter === 'all' || category === activeFilter) && `${name} ${description}`.toLowerCase().includes(query)); grid.innerHTML = visible.map(([, name, description, image, price, unit]) => { const numericPrice = price.replace(/[^0-9]/g, ''); return `<article class="catalog-card"><img src="${image}" alt="${name}" loading="lazy"><div class="card-body"><h3>${name}</h3><p>${description}</p><div class="price"><span>Starting at</span><strong>${price} <small>${unit}</small></strong></div><a href="product.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&price=${numericPrice}&unit=${encodeURIComponent(unit)}">Order Now <span>›</span></a></div></article>`; }).join(''); count.textContent = `${visible.length} product${visible.length === 1 ? '' : 's'}`; title.textContent = activeFilter === 'all' ? 'Featured products' : filterLabels[activeFilter]; empty.classList.toggle('show', visible.length === 0); }
+        document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => { document.querySelector('.filter.active').classList.remove('active'); button.classList.add('active'); activeFilter = button.dataset.filter; render(); })); search.addEventListener('input', render); render();
+    </script>
+</body>
+</html>

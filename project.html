@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <title>Start a Project — October Printz</title>
+    <style>
+        :root {
+            --ink: #231f20;
+            --paper: #ffffff;
+            --brand: #00b3aa;
+            --soft: #f4f0e4;
+            --muted: #666761;
+            --line: rgba(35,31,32,.16);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: 'DM Sans', sans-serif;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        .project-header {
+            padding: 22px 7vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+            background: #fafafa;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand img {
+            width: 154px;
+            display: block;
+        }
+
+        .back-link {
+            font-size: 13px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 5px;
+        }
+
+        .project-hero {
+            padding: 85px 8vw 55px;
+            background: var(--soft);
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1.7px;
+            font-weight: 700;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .eyebrow span {
+            width: 23px;
+            height: 2px;
+            background: var(--brand);
+            display: inline-block;
+        }
+
+        h1 {
+            max-width: 900px;
+            margin: 25px 0 18px;
+            font: 600 clamp(48px, 7vw, 92px)/.92 'Space Grotesk', sans-serif;
+            letter-spacing: -4px;
+        }
+
+        h1 em {
+            color: var(--brand);
+            font-style: normal;
+        }
+
+        .intro {
+            max-width: 620px;
+            color: #555650;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .project-area {
+            padding: 60px 8vw 100px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-title {
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            margin: 8px 0;
+            font: 600 clamp(30px, 4vw, 50px)/1 'Space Grotesk', sans-serif;
+            letter-spacing: -2px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .choices {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .choice {
+            border: 1px solid var(--line);
+            background: #fff;
+            padding: 28px;
+            min-height: 190px;
+            cursor: pointer;
+            text-align: left;
+            transition: .2s ease;
+            position: relative;
+        }
+
+        .choice:hover {
+            transform: translateY(-5px);
+            border-color: var(--ink);
+            box-shadow: 0 14px 30px rgba(0,0,0,.08);
+        }
+
+        .choice.active {
+            border: 2px solid var(--brand);
+            background: #f3fffd;
+        }
+
+        .choice-number {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--brand);
+            letter-spacing: 1px;
+        }
+
+        .choice h3 {
+            font: 600 25px/1.05 'Space Grotesk', sans-serif;
+            margin: 30px 0 10px;
+            letter-spacing: -1px;
+        }
+
+        .choice p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .check {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 13px;
+        }
+
+        .choice.active .check {
+            background: var(--brand);
+            border-color: var(--brand);
+            color: white;
+        }
+
+        .details {
+            margin-top: 55px;
+            padding: 35px;
+            background: var(--ink);
+            color: white;
+            display: none;
+        }
+
+        .details.show {
+            display: block;
+        }
+
+        .details h2 {
+            margin: 0 0 8px;
+            font: 600 32px 'Space Grotesk', sans-serif;
+        }
+
+        .details > p {
+            color: #c9cac5;
+            margin-top: 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            border: 1px solid #5c5d59;
+            background: #302c2d;
+            color: white;
+            padding: 14px;
+            font: 14px 'DM Sans', sans-serif;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--brand);
+        }
+
+        .submit-row {
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .price-note {
+            color: #c9cac5;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .submit-btn {
+            border: 0;
+            background: var(--brand);
+            color: var(--ink);
+            padding: 15px 24px;
+            font: 700 13px 'DM Sans', sans-serif;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f3fffd;
+            color: var(--ink);
+            font-size: 13px;
+        }
+
+        .message.show { display: block; }
+
+        @media (max-width: 800px) {
+            .choices { grid-template-columns: 1fr 1fr; }
+            .project-hero { padding: 65px 7vw 45px; }
+            .project-area { padding: 45px 7vw 70px; }
+        }
+
+        @media (max-width: 560px) {
+            .project-header { padding: 18px 6vw; }
+            .brand img { width: 130px; }
+            .back-link { font-size: 11px; }
+            h1 { font-size: 53px; letter-spacing: -3px; }
+            .choices { grid-template-columns: 1fr; }
+            .choice { min-height: 160px; }
+            .details { padding: 25px 20px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .field.full { grid-column: auto; }
+            .submit-row { flex-direction: column; align-items: stretch; }
+            .submit-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="project-header">
+    <a class="brand" href="index-project-updated.html">
+        <img src="october_printz_logo_transparent.png" alt="October Printz">
+    </a>
+    <a class="back-link" href="index-project-updated.html">← Back to studio</a>
+</header>
+
+<main>
+    <section class="project-hero">
+        <p class="eyebrow"><span></span> Start a project</p>
+        <h1>What are you looking to <em>print?</em></h1>
+        <p class="intro">
+            Choose what you need below. We'll collect a few details so we can understand your project,
+            recommend the right option and give you an accurate quote.
+        </p>
+    </section>
+
+    <section class="project-area">
+        <div class="section-title">
+            <p class="eyebrow"><span></span> Choose a service</p>
+            <h2>Tell us what you need.</h2>
+            <p>Select one option to continue.</p>
+        </div>
+
+        <div class="choices">
+            <button class="choice" data-service="Business Cards">
+                <span class="choice-number">01</span>
+                <span class="check">+</span>
+                <h3>Business Cards</h3>
+                <p>Professional cards for your brand, team or business.</p>
+            </button>
+
+            <button class="choice" data-service="Flyers & Posters">
+                <span class="choice-number">02</span>
+                <span class="check">+</span>
+                <h3>Flyers & Posters</h3>
+                <p>Promotional prints for events, products and campaigns.</p>
+            </button>
+
+            <button class="choice" data-service="Banners & Signage">
+                <span class="choice-number">03</span>
+                <span class="check">+</span>
+                <h3>Banners & Signage</h3>
+                <p>Large-format printing for shops, events and outdoor branding.</p>
+            </button>
+
+            <button class="choice" data-service="T-Shirts & Apparel">
+                <span class="choice-number">04</span>
+                <span class="check">+</span>
+                <h3>T-Shirts & Apparel</h3>
+                <p>Custom branded shirts, uniforms and promotional clothing.</p>
+            </button>
+
+            <button class="choice" data-service="Packaging & Labels">
+                <span class="choice-number">05</span>
+                <span class="check">+</span>
+                <h3>Packaging & Labels</h3>
+                <p>Product labels, stickers, boxes and branded packaging.</p>
+            </button>
+
+            <button class="choice" data-service="Something Else">
+                <span class="choice-number">06</span>
+                <span class="check">+</span>
+                <h3>Something Else</h3>
+                <p>Have a different idea? Tell us what you're working on.</p>
+            </button>
+        </div>
+
+        <div class="details" id="details">
+            <h2 id="selectedTitle">Your project</h2>
+            <p>Give us a few details and we'll take it from there.</p>
+
+            <form id="projectForm">
+                <input type="hidden" id="service" name="service">
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="name">Your name</label>
+                        <input id="name" name="name" type="text" placeholder="e.g. Royal" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone / WhatsApp</label>
+                        <input id="phone" name="phone" type="tel" placeholder="080..." required>
+                    </div>
+
+                    <div class="field">
+                        <label for="quantity">Quantity</label>
+                        <input id="quantity" name="quantity" type="number" min="1" placeholder="e.g. 100">
+                    </div>
+
+                    <div class="field">
+                        <label for="size">Size</label>
+                        <select id="size" name="size">
+                            <option value="">Choose a size</option>
+                            <option>A6</option>
+                            <option>A5</option>
+                            <option>A4</option>
+                            <option>A3</option>
+                            <option>Custom size</option>
+                            <option>Not sure yet</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label for="description">Tell us about the project</label>
+                        <textarea id="description" name="description" placeholder="What do you want us to print? Any colours, finishing, deadline or special requirements?"></textarea>
+                    </div>
+                </div>
+
+                <div class="submit-row">
+                    <p class="price-note">
+                        No payment is taken here.<br>
+                        We'll review your request and send you a quote.
+                    </p>
+                    <button class="submit-btn" type="submit">Request a quote ↗</button>
+                </div>
+
+                <div class="message" id="successMessage">
+                    Thanks! Your project request has been prepared. Connect this form to WhatsApp, email or your backend to receive the submission.
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script>
+    const choices = document.querySelectorAll('.choice');
+    const details = document.getElementById('details');
+    const selectedTitle = document.getElementById('selectedTitle');
+    const serviceInput = document.getElementById('service');
+    const form = document.getElementById('projectForm');
+    const successMessage = document.getElementById('successMessage');
+
+    choices.forEach(choice => {
+        choice.addEventListener('click', () => {
+            choices.forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.check').textContent = '+';
+            });
+
+            choice.classList.add('active');
+            choice.querySelector('.check').textContent = '✓';
+
+            const service = choice.dataset.service;
+            serviceInput.value = service;
+            selectedTitle.textContent = service;
+
+            details.classList.add('show');
+            details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        successMessage.classList.add('show');
+    });
+</script>
+
+</body>
+</html>

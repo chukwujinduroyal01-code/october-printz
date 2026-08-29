@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <title>October Printz — Studio</title>
+  <style>
+    :root{
+      --ink:#231f20; --paper:#fff; --brand:#00b3aa;
+      --cream:#f4f0e4; --muted:#666761; --line:rgba(35,31,32,.16);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:'DM Sans',sans-serif}
+    a{text-decoration:none;color:inherit}
+    .header{
+      position:sticky;top:0;z-index:20;background:#fafafa;
+      border-bottom:1px solid var(--line);padding:18px 7vw;
+      display:flex;align-items:center;justify-content:space-between
+    }
+    .logo{width:150px;display:block}
+    .nav{display:flex;gap:30px;font-size:13px;font-weight:700}
+    .nav a:hover{color:var(--brand)}
+    .header-btn{
+      padding:12px 18px;background:var(--ink);color:white;font-size:12px;font-weight:700
+    }
+    .hero{
+      min-height:620px;padding:85px 8vw 70px;background:var(--cream);
+      display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center
+    }
+    .eyebrow{
+      text-transform:uppercase;font-size:10px;letter-spacing:1.7px;font-weight:700;
+      display:flex;gap:10px;align-items:center
+    }
+    .eyebrow span{width:23px;height:2px;background:var(--brand);display:inline-block}
+    h1{
+      margin:24px 0;font:600 clamp(52px,7vw,96px)/.9 'Space Grotesk',sans-serif;
+      letter-spacing:-5px;max-width:780px
+    }
+    h1 em{font-style:normal;color:var(--brand)}
+    .hero-copy p:not(.eyebrow){max-width:570px;color:#555650;line-height:1.7;font-size:16px}
+    .hero-links{display:flex;gap:25px;align-items:center;margin-top:35px}
+    .primary{background:var(--brand);padding:15px 22px;font-size:13px;font-weight:700}
+    .under{font-size:13px;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:5px}
+    .studio-art{
+      min-height:430px;position:relative;display:flex;align-items:center;justify-content:center
+    }
+    .card{
+      position:absolute;width:250px;height:320px;box-shadow:15px 20px 35px rgba(0,0,0,.15);
+      display:flex;flex-direction:column;justify-content:space-between;padding:28px
+    }
+    .card.one{background:#111;color:white;transform:rotate(-12deg) translate(-80px,20px)}
+    .card.two{background:var(--brand);transform:rotate(5deg) translate(60px,-10px)}
+    .card.three{background:white;border:1px solid #ddd;transform:rotate(13deg) translate(105px,55px)}
+    .card img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:.28;
+      z-index:0;
+    }
+    .card strong,.card small{position:relative;z-index:1}
+    .card strong{font:600 34px/.95 'Space Grotesk'}
+    .card small{font-size:9px;letter-spacing:1.5px;font-weight:700}
+    .section{padding:95px 8vw}
+    .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:42px}
+    .section-head h2{
+      margin:10px 0 0;font:600 clamp(38px,5vw,65px)/.95 'Space Grotesk';
+      letter-spacing:-3px
+    }
+    .section-head p{max-width:370px;color:var(--muted);line-height:1.7;font-size:14px}
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .work{
+      min-height:370px;position:relative;overflow:hidden;padding:25px;
+      display:flex;flex-direction:column;justify-content:space-between
+    }
+    .work:nth-child(1){background:#e9d9c4}
+    .work:nth-child(2){background:#dfe8e4}
+    .work:nth-child(3){background:#171717;color:white}
+    .work:nth-child(4){background:#e5f5f3}
+    .work:nth-child(5){background:#f1dfdf}
+    .work:nth-child(6){background:#ecebe6}
+    .work-number{font-size:10px;font-weight:700;letter-spacing:1px}
+    .mockup{
+      width:70%;height:190px;margin:auto;box-shadow:12px 16px 25px rgba(0,0,0,.15);
+      display:grid;place-items:center;text-align:center;font:600 27px/.9 'Space Grotesk';
+      transform:rotate(-5deg)
+    }
+    .w1{background:#00b3aa}.w2{background:#111;color:white}.w3{background:white;color:#111}
+    .w4{background:#ff8a65}.w5{background:#fff}.w6{background:#231f20;color:white}
+    .mockup img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .work-info{display:flex;justify-content:space-between;align-items:end}
+    .work-info strong{font:600 23px 'Space Grotesk'}
+    .work-info span{font-size:10px;text-transform:uppercase;letter-spacing:1px}
+    .services{background:var(--ink);color:white;padding:85px 8vw}
+    .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:45px}
+    .service{
+      padding:25px 0;border-top:1px solid #555;
+      display:grid;grid-template-columns:45px 1fr 25px;gap:10px;align-items:center
+    }
+    .service span{color:var(--brand);font-size:10px}
+    .service strong{font:600 23px 'Space Grotesk'}
+    .service b{font-size:20px;font-weight:400}
+    .process{background:var(--cream)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:45px}
+    .step{border-top:2px solid var(--ink);padding-top:20px}
+    .step-num{font-size:10px;color:var(--brand);font-weight:700}
+    .step h3{font:600 25px 'Space Grotesk';margin:25px 0 10px}
+    .step p{font-size:13px;color:var(--muted);line-height:1.65}
+    .cta{
+      padding:90px 8vw;background:var(--brand);
+      display:flex;justify-content:space-between;align-items:end;gap:30px
+    }
+    .cta h2{margin:15px 0 0;font:600 clamp(42px,6vw,78px)/.92 'Space Grotesk';letter-spacing:-4px}
+    .cta-btn{background:white;padding:16px 23px;font-size:13px;font-weight:700;white-space:nowrap}
+    footer{padding:28px 7vw;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+    footer img{width:140px}
+    @media(max-width:800px){
+      .nav{display:none}
+      .hero{grid-template-columns:1fr;padding:65px 7vw 40px}
+      .studio-art{min-height:400px}
+      .work-grid{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:20px}
+    }
+    @media(max-width:560px){
+      .header{padding:17px 6vw}
+      .logo{width:130px}
+      .header-btn{padding:10px 12px;font-size:10px}
+      h1{font-size:54px;letter-spacing:-3px}
+      .studio-art{transform:scale(.8);transform-origin:center}
+      .work-grid,.services-grid,.steps{grid-template-columns:1fr}
+      .section{padding:70px 7vw}
+      .services,.process{padding:70px 7vw}
+      .cta{display:block;padding:70px 7vw}
+      .cta-btn{display:inline-block;margin-top:35px}
+      footer{display:grid;gap:18px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index-project-updated.html"><img class="logo" src="october_printz_logo_transparent.png" alt="October Printz"></a>
+  <nav class="nav">
+    <a href="#work">Our work</a>
+    <a href="products.html">Services</a>
+    <a href="#process">How it works</a>
+  </nav>
+  <a class="header-btn" href="project.html">Start a project ↗</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> The October Printz Studio</p>
+      <h1>Ideas made <em>real.</em></h1>
+      <p>
+        Welcome to our studio — a place to explore the things we print, the details we care about,
+        and the work we create for brands, businesses, events and big ideas.
+      </p>
+      <div class="hero-links">
+        <a class="primary" href="#work">Explore our work ↓</a>
+        <a class="under" href="project.html">Start your project ↗</a>
+      </div>
+    </div>
+
+    <div class="studio-art" aria-label="Abstract print studio artwork">
+      <div class="card one"><img src="images/hero-print.jpg" alt="Print design"><strong>PRINT<br>WITH<br>PURPOSE.</strong><small>OCTOBER PRINTZ · 01</small></div>
+      <div class="card two"><img src="images/hero-design.jpg" alt="Creative print design"><strong>MAKE IT<br>MEMORABLE.</strong><small>STUDIO · 02</small></div>
+      <div class="card three"><img src="images/hero-branding.jpg" alt="Branding print"><strong>GOOD<br>DESIGN<br>FEELS.</strong><small>PRINT · 03</small></div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow"><span></span> Selected work</p>
+        <h2>Things we've<br>made.</h2>
+      </div>
+      <p>
+        A collection of print ideas across branding, apparel, packaging, promotional materials
+        and everyday business essentials.
+      </p>
+    </div>
+
+    <div class="work-grid">
+      <article class="work">
+        <span class="work-number">01 / Apparel</span>
+        <div class="mockup w1"><img src="images/tshirt.png" alt="Custom T-Shirts"></div>
+        <div class="work-info"><strong>T-Shirts</strong><span>Custom print</span></div>
+      </article>
+
+      <article class="work">
+        <span class="work-number">02 / Identity</span>
+        <div class="mockup w2"><img src="images/509b15e18613b59ed38b4dcc5bdd6634.jpg" alt="Business Cards"></div>
+        <div class="work-info"><strong>Business Cards</strong><span>Brand collateral</span></div>
+      </article>
+
+      <article class="work">
+        <span class="work-number">03 / Packaging</span>
+        <div class="mockup w3"><img src="images/packaging.jpg" alt="Custom Packaging"></div>
+        <div class="work-info"><strong>Packaging</strong><span>Product print</span></div>
+      </article>
+
+      <article class="work">
+        <span class="work-number">04 / Promotion</span>
+        <div class="mockup w4"><img src="images/download.jpg" alt="Event Posters"></div>
+        <div class="work-info"><strong>Posters</strong><span>Large format</span></div>
+      </article>
+
+      <article class="work">
+        <span class="work-number">05 / Labels</span>
+        <div class="mockup w5"><img src="images/download (1).jpg" alt="Product Labels"></div>
+        <div class="work-info"><strong>Labels</strong><span>Packaging</span></div>
+      </article>
+
+      <article class="work">
+        <span class="work-number">06 / Promotion</span>
+        <div class="mockup w6"><img src="images/flyer.jpg" alt="Printed Flyers"></div>
+        <div class="work-info"><strong>Flyers</strong><span>Campaign print</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <p class="eyebrow"><span></span> What we print</p>
+    <div class="services-grid">
+      <a class="service" href="products.html"><span>01</span><strong>Business Cards</strong><b>↗</b></a>
+      <a class="service" href="products.html"><span>02</span><strong>Flyers & Posters</strong><b>↗</b></a>
+      <a class="service" href="products.html"><span>03</span><strong>T-Shirts & Apparel</strong><b>↗</b></a>
+      <a class="service" href="products.html"><span>04</span><strong>Banners & Signage</strong><b>↗</b></a>
+      <a class="service" href="products.html"><span>05</span><strong>Packaging & Labels</strong><b>↗</b></a>
+      <a class="service" href="products.html"><span>06</span><strong>Custom Projects</strong><b>↗</b></a>
+    </div>
+  </section>
+
+  <section class="section process" id="process">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow"><span></span> Our process</p>
+        <h2>From idea<br>to <em>print.</em></h2>
+      </div>
+      <p>We keep the process simple, clear and focused on getting your final product right.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Tell us</h3>
+        <p>Choose what you need and send us your project details.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>We quote</h3>
+        <p>We review the job and give you the best option and price.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>We produce</h3>
+        <p>Once approved, your project goes into production.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h3>You receive</h3>
+        <p>Your finished prints are ready for pickup or delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div>
+      <p class="eyebrow"><span></span> Ready when you are</p>
+      <h2>Let's make<br>something <em>real.</em></h2>
+    </div>
+    <a class="cta-btn" href="project.html">Start a project ↗</a>
+  </section>
+</main>
+
+<footer>
+  <a href="index-project-updated.html"><img src="october_printz_logo_transparent.png" alt="October Printz"></a>
+  <span>Print with purpose, from Lagos to everywhere.</span>
+  <span>© 2026 October Printz</span>
+</footer>
+
+</body>
+</html>
