@@ -1,75 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="products.css">
-    <style>.utility-bar nav { gap: 12px; }.utility-bar nav a { border: 1px solid var(--line); border-radius: 30px; padding: 10px 16px; }</style>
-    <style>.catalog-header,.utility-bar,.main-bar { background: #00b3aa; color: #fff; }.catalog-header a,.utility-bar a,.main-bar a { color: #fff; }.utility-bar nav a,.country { border-color: rgba(255,255,255,.7); background: #fff; color: #183b5f; }.main-bar { background: #fff; color: #183b5f; }.main-bar a { color: #183b5f; }.main-bar nav a:hover { color: #d77d81; }.logo { background: #fff; padding: 9px 14px; }</style>
+    <style>
+        .utility-bar nav {
+            gap: 12px;
+        }
+
+        .utility-bar nav a {
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            padding: 10px 16px;
+        }
+    </style>
+    <style>
+        .catalog-header,
+        .utility-bar,
+        .main-bar {
+            background: #00b3aa;
+            color: #fff;
+        }
+
+        .catalog-header a,
+        .utility-bar a,
+        .main-bar a {
+            color: #fff;
+        }
+
+        .utility-bar nav a,
+        .country {
+            border-color: rgba(255, 255, 255, .7);
+            background: #fff;
+            color: #183b5f;
+        }
+
+        .main-bar {
+            background: #fff;
+            color: #183b5f;
+        }
+
+        .main-bar a {
+            color: #183b5f;
+        }
+
+        .main-bar nav a:hover {
+            color: #00b3aa;
+        }
+
+        .logo {
+            background: #fff;
+            padding: 9px 14px;
+        }
+    </style>
     <title>All Products - October Printz</title>
 </head>
+
 <body>
     <header class="catalog-header">
-        <div class="utility-bar"><nav><a href="index.html#quote">Cost Calculator</a><a href="track order/track.html">Track Orders</a></nav><span>Need help? <a href="tel:08023628784">08023628784</a></span><span class="country">NG Nigeria</span></div>
-        <div class="main-bar"><a class="logo" href="index.html"><img src="october_printz_logo_transparent.png" alt="October Printz"></a><nav><a href="index.html#work">All Products</a><a href="project.html">Become a Reseller</a><a href="index.html#quote">Marketplace</a><a href="index.html#quote">Sign in</a><a href="index.html#quote">Create Account</a><a class="cart" href="index.html#quote" aria-label="Shopping cart">🛒</a></nav></div>
+        <div class="utility-bar">
+            <nav><a href="index.html#quote">Cost Calculator</a><a href="track order/track.html">Track Orders</a></nav>
+            <span>Need help? <a href="tel:08023628784">08023628784</a></span><span class="country">NG Nigeria</span>
+        </div>
+        <div class="main-bar"><a class="logo" href="index.html"><img src="october_printz_logo_transparent.png"
+                    alt="October Printz"></a>
+            <nav><a href="index.html#work">All Products</a><a href="project.html">Become a Reseller</a><a
+                    href="index.html#quote">Marketplace</a><a href="index.html#quote">Sign in</a><a
+                    href="index.html#quote">Create Account</a><a class="cart" href="cart.html"
+                    aria-label="Shopping cart">🛒</a></nav>
+        </div>
     </header>
     <main>
         <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span> All Products</div>
-        <section class="catalog-heading"><div><p class="kicker"><span></span> October Printz collection</p><h1>All <em>products</em></h1></div><label class="catalog-search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search for any product" aria-label="Search for any product"></label></section>
+        <section class="catalog-heading">
+            <div>
+                <p class="kicker"><span></span> October Printz collection</p>
+                <h1>All <em>products</em></h1>
+            </div>
+        </section>
         <section class="catalog-layout">
-            <aside class="filter-panel"><h2>Filter</h2><div class="filter-rule"></div><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="cards">Business Cards</button><button class="filter" data-filter="letterhead">Letterhead</button><button class="filter" data-filter="envelopes">Envelopes</button><button class="filter" data-filter="flyers">Flyers &amp; Handbills</button><button class="filter" data-filter="bags">Bags</button><button class="filter" data-filter="wedding">Wedding Stationery</button><button class="filter" data-filter="stickers">Stickers</button><button class="filter" data-filter="notepads">Notepads and Jotters</button><button class="filter" data-filter="mugs">Mugs</button><button class="filter" data-filter="banners">Banners &amp; Large Format</button><button class="filter" data-filter="posters">Posters</button><button class="filter" data-filter="folders">Presentation Folders</button><button class="filter" data-filter="brochures">Brochures</button><button class="filter" data-filter="id-cards">ID Cards</button><button class="filter" data-filter="gifts">Corporate Gifts</button></aside>
-            <div class="catalog-content"><div class="results-heading"><h2 id="categoryTitle">Featured products</h2><span id="resultCount">39 products</span></div><div class="catalog-grid" id="catalogGrid"></div><p class="empty-state" id="emptyState">No products match your search.</p></div>
+            <aside class="filter-panel">
+                <div class="filter-top">
+                    <h2>Filter</h2><label class="catalog-search"><span aria-hidden="true">⌕</span><input id="search"
+                            type="search" placeholder="Search" aria-label="Search for any product"></label>
+                </div>
+                <div class="filter-rule"></div><button class="filter active" data-filter="all">All</button><button
+                    class="filter" data-filter="calender">Calender</button><button class="filter"
+                    data-filter="cards">Cards</button><button class="filter"
+                    data-filter="letterhead">Letterhead</button><button class="filter"
+                    data-filter="envelopes">Envelopes</button><button class="filter" data-filter="flyers">Flyers &amp;
+                    Handbills</button><button class="filter" data-filter="bags">Bags</button><button class="filter"
+                    data-filter="stickers">Stickers</button><button class="filter" data-filter="notepads">Notepads and
+                    Jotters</button><button class="filter" data-filter="mugs">Mugs</button><button class="filter"
+                    data-filter="brochures">Brochures</button><button class="filter" data-filter="id-cards">ID Cards</button><button
+                    class="filter" data-filter="clothing">Clothing &amp; Apparel</button><button class="filter"
+                    data-filter="campaign">Campaign Materials</button><button class="filter"
+                    data-filter="gifts">Corporate Gifts</button>
+            </aside>
+            <div class="catalog-content">
+                <div class="results-heading">
+                    <h2 id="categoryTitle">Featured products</h2><span id="resultCount">39 products</span>
+                </div>
+                <div class="catalog-grid" id="catalogGrid"></div>
+                <p class="empty-state" id="emptyState">No products match your search.</p>
+            </div>
         </section>
     </main>
     <script>
+        const calendarImageMap = {
+            'Calendars': 'image 33333/bd2bc299a26515f8e912a2579fc1709e.jpg',
+            'A5 Table Calendar (7 Sheets)': 'image 33333/7.jpeg',
+            'A3 Wall Calendar (7 Sheets)': 'image 33333/a3 7.jpeg',
+            'A2 Wall Calendar (7 Sheets)': 'image 33333/a2 7.jpeg',
+            'A2 Wall Calendar (13 Sheets)': 'image 33333/a213.jpeg',
+            'A5 Table Calendar (13 Sheets)': 'image 33333/a5 13.jpeg'
+        };
+
         const products = [
-            ['cards','Business Cards','Sharp, memorable business cards printed on quality stock.','images/buisness card.jpg','₦15,100','per 100'],
-            ['cards','Premium Business Cards','A refined finish for brands that care about every detail.','images/buisness card.png','₦22,500','per 100'],
-            ['cards','One-Sided Business Cards','Simple, professional cards for everyday business introductions.','images/buisness card.jpg','₦11,000','per 100'],
-            ['cards','Folded Business Cards','More room for your story, services and contact details.','images/buisness card.png','₦26,000','per 100'],
-            ['cards','Luxury Business Cards','Premium card stock and finishing for a memorable first impression.','images/download (1).jpg','₦32,000','per 100'],
-            ['wedding','Wedding Invitation Cards','Beautiful invitation cards designed for your special celebration.','images/download (1).jpg','₦65,000','per 50'],
-            ['letterhead','A4 Letterhead','Professional letterheads for proposals, invoices and correspondence.','images/printed.jpg','₦12,000','per 100'],
-            ['envelopes','Branded Envelopes','Give every document a polished branded finish.','images/packaging.jpg','₦22,000','per 100'],
-            ['flyers','Flyers & Handbills','Bold, flexible print for launches, events and promotions.','images/flyer.jpg','₦18,500','per 100'],
-            ['bags','Pillow Bags (A4)','Pillow boxes with a polished branded finish.','images/bag branding.jpeg','₦45,000','per 50'],
-            ['bags','Pillow Bags (A5)','Compact branded bags for product gifting.','images/bag brandnng.png','₦38,000','per 50'],
-            ['bags','Small Paper Bags (A5)','Smart paper bags for everyday retail orders.','images/packaging.jpg','₦32,000','per 50'],
-            ['bags','X-Large Paper Bags','Roomy branded bags for larger products.','images/bag branding.jpeg','₦65,000','per 50'],
-            ['bags','Wine Paper Bags','Elegant carriers for bottles and celebration gifts.','images/bag brandnng.png','₦42,000','per 50'],
-            ['bags','A4 Branded Paper Bags','A4 bags made for boutiques and campaigns.','images/bag branding.jpeg','₦35,000','per 50'],
-            ['bags','Black Tote Bags','Strong reusable tote bags with bold custom branding.','im5.jpg','₦35,000','per 50'],
-            ['bags','A4 Courier Bags','Durable A4 courier bags for secure branded deliveries.','images/bag branding.jpeg','₦32,000','per 50'],
-            ['bags','A3 Courier Bags','Large courier bags for bigger products and documents.','images/bag brandnng.png','₦38,000','per 50'],
-            ['wedding','Wedding Invitations','Beautiful stationery for celebrations made to remember.','images/download (1).jpg','₦65,000','per 50'],
-            ['stickers','Label Stickers','Durable adhesive labels for products, packaging and events.','images/download.jpg','₦17,000','per 100'],
-            ['stickers','Round Stickers','Clean, vivid round stickers for a signature finish.','images/download.jpg','₦17,000','per 100'],
-            ['notepads','Branded Notepads','Useful branded notepads for desks, meetings and gifting.','images/printed.jpg','₦45,000','per 50'],
-            ['notepads','Jotters','Practical custom jotters that keep your brand close.','images/printed.jpg','₦85,000','per 50'],
-            ['mugs','Simple Mugs','Everyday ceramic mugs printed with your artwork.','c66749a1-6100-46e8-b5e4-2307f6904f64.png','₦47,400','per 10'],
-            ['banners','Roll-Up Banner (85 x 200cm)','Portable display graphics for shops and events.','images/big rollup banner.png','₦78,000','per 1'],
-            ['banners','A0 Poster Banner','Large-format artwork with crisp, vivid color.','images/postcard.jpg','₦35,000','per 1'],
-            ['banners','Outdoor Vinyl Banner','Weather-ready branding for outdoor visibility.','images/big rollup banner.png','₦95,000','per 1'],
-            ['banners','Step-and-Repeat Backdrop','A branded photo wall for launches and events.','images/big rollup banner.png','₦125,000','per 1'],
-            ['banners','Retractable Premium Banner','A refined retractable display for presentations.','images/big rollup banner.png','₦110,000','per 1'],
-            ['banners','A1 Promotional Poster','A bold poster format for campaigns and offers.','images/flyer.jpg','₦24,000','per 10'],
-            ['banners','Mesh Fence Banner','High-impact large format for open spaces.','images/big rollup banner.png','₦88,000','per 1'],
-            ['banners','Tabletop Banner','A compact branded sign for counters and desks.','images/big rollup banner.png','₦42,000','per 1'],
-            ['banners','Flag Banner','Movement and color for entrances and events.','images/big rollup banner.png','₦72,000','per 1'],
-            ['banners','Custom Wall Graphic','Transform a blank wall into a brand moment.','images/postcard.jpg','₦145,000','per 1'],
-            ['posters','A3 Posters','Large, crisp posters for campaigns and announcements.','images/postcard.jpg','₦22,000','per 10'],
-            ['folders','Presentation Folders','Organise proposals and documents with a branded cover.','images/trifold-brochure-printing.png','₦65,000','per 50'],
-            ['brochures','Tri-Fold Brochures','Tell your story clearly across a compact folded format.','images/trifold-brochure-printing.png','₦28,000','per 100'],
-            ['id-cards','Plastic ID Cards','Professional staff and event identification cards.','images/buisness card.png','₦60,000','per 50'],
-            ['gifts','Corporate Gift Packs','Thoughtful branded gifts for clients, teams and partners.','images/bag brandnng.png','₦125,000','per 10']
+            ['calender', 'A5 Table Calendar (7 Sheets)', 'Order A5 Table Calendar by simply uploading your own design or allowing us to design for you. We will print and also deliver to your doorstep anywhere within Nigeria.', calendarImageMap['A5 Table Calendar (7 Sheets)'], '₦2000', 'per 1'],
+            ['calender', 'A5 Table Calendar (13 Sheets)', 'Order A5 Table Calendar by simply uploading your own design or allowing us to design for you. We will print and also deliver to your doorstep anywhere within Nigeria.', calendarImageMap['A5 Table Calendar (13 Sheets)'], '₦38,000', 'per 50'],
+            ['calender', 'A3 Wall Calendar (7 Sheets)', 'Order colourful cut to size A3 Wall Calendar by simply uploading your own design or allow us to design for you. We will print and deliver to your doorstep within few days.', calendarImageMap['A3 Wall Calendar (7 Sheets)'], '₦ ', 'per 1'],
+            ['calender', 'A5 Table Calendar (13 Sheets)', 'Order A5 Table Calendar by simply uploading your own design or allowing us to design for you. We will print and also deliver to your doorstep anywhere within Nigeria.', calendarImageMap['A5 Table Calendar (13 Sheets)'], '₦38,000', 'per 50'],
+            ['cards', 'Business Cards', 'Sharp, memorable business cards printed on quality stock.', 'images/buisness card.jpg', '₦15,100', 'per 100'],
+            ['cards', 'Curved Business Cards', 'Simple, professional cards for everyday business introductions.', 'curve.jpg', '₦11,000', 'per 100'],
+            ['cards', 'Folded Business Cards', 'More room for your story, services and contact details.', 'fold.jpg', '₦26,000', 'per 100'],
+            ['cards', 'Luxury Business Cards', 'Premium card stock and finishing for a memorable first impression.', 'lux].jpg', '₦30,000', 'per 100'],
+            ['cards', 'Wedding Invitation Card', 'Elegant wedding invitation cards made for your special day.', 'wedding card.jpg', '₦65,000', 'per 50'],
+            ['cards', 'Transparent Card', 'Modern transparent cards designed to stand out with a premium finish.', 'transperate.jpg', '₦19,500', 'per 100'],
+            ['wedding', 'Wedding Invitation Cards', 'Beautiful invitation cards designed for your special celebration.', 'images/download (1).jpg', '₦65,000', 'per 50'],
+            ['cards', 'Plastic ID Cards', 'A refined finish for brands that care about every detail.', 'images/buisness card.png', '₦1000', 'per 1'],
+            ['letterhead', 'Executive Letterhead', 'Premium letterheads for formal business communication and proposals.', 'latter 1.jpg', '₦18,000', 'per 100'],
+            ['letterhead', 'Continuation Sheets', 'Order full colour continuation sheets for your businesses. Have it shipped to you.', 'conti.jpg', '₦13,500', 'per 100'],
+            ['envelopes', 'DL small printed Envelopes', 'Printed document envelopes for business correspondence and secure deliveries.', 'evl001.jpg', '₦22,000', 'per 100'],
+            ['envelopes', 'A4 C4, A5 C5, A3 C3', 'Choose the right envelope size for your documents, mailings and presentation packs.', 'c4.jpg', '₦28,000', 'per 100'],
+            ['flyers', 'A6 Flyers (Double Sided)', 'Order double sided flyers and handbills online and we will ship to your door step.', 'a6 2.jpg', '₦18,500', 'per 100'],
+            ['flyers', 'DL flyers', 'To order for DL Flyers, simply upload your own design or allow us to design for you. We will print and also deliver to your doorstep anywhere within Nigeria.', 'dl.jpg', '₦18,500', 'per 100'],
+            ['flyers', 'DL Flyers (2 Sided)', 'To order your DL Flyers, upload your design or request help from our design team. We will print and ship to your doorstep anywhere in Nigeria.', 'dl 2.jpg', '₦18,500', 'per 100'],
+            ['flyers', 'A5 Flyers (Double Sided)', 'Order your A5 Flyers by uploading your own design or allowing you design for you. We will print and deliver to your doorstep anywhere within Nigeria.', 'a5 2.jpg', '₦18,500', 'per 100'],
+            ['flyers', 'A6 Flyers (Single Sided)', 'We will print and deliver your A6 Flyers to your doorstep anywhere within Nigeria. Simply place an order and upload your design.', 'a61.jpg', '₦18,500', 'per 100'],
+            ['flyers', 'A4 Flyers single-sided', 'Order A4 flyers printing nationwide shipping. Best quality & Prices. Try it Now', 'a4 single.jpg', '₦16,500', 'per 100'],
+            ['flyers', 'A5 flyers (Single Sided)', 'Order your A5 Flyers by uploading your own design or allowing us to design for you. We will print and deliver to your doorstep anywhere within Nigeria.', 'A5 1.jpg', '₦18,500', 'per 100'],
+            ['flyers', 'Tri-Fold Flyer', 'A tri-fold brochure is a professional marketing material used to present a business, organization, product, or service in a clear and attractive way.', 'GGG.jpg', '₦18,500', 'per 100'],
+            ['bags', 'Drawstring Bag', 'Our versatile drawstring bags are the perfect accessory for anyone looking for convenient storage on-the-go.', 'imgae 2222/045c903ebc07f442efc09402c3ba93eb.jpg', '₦35,000', 'per 50'],
+            ['bags', 'Black Fanny Packs', 'Elevate your style with our classic black fanny packs. These stylish and practical accessories offer a convenient way to carry your essentials while keeping your hands free.', 'imgae 2222/bac.jpg', '₦48,000', 'per 50'],
+            ['bags', 'White Fanny Packs', 'Elevate your style with our classic white fanny packs. These stylish and practical accessories offer a convenient way to carry your essentials while keeping your hands free.', 'imgae 2222/w bag.jpg', '₦48,000', 'per 50'],
+            ['bags', 'Cream Tote Bags', 'Bring your brand and events to life with Cotton Tote Bag. Add a text, a logo or your image of choice. We will print and deliver to your doorstep.', 'imgae 2222/baggy.jpg', '₦35,000', 'per 50'],
+            ['bags', 'Large Paper Bags', 'Order & print affordable large paper bags in A3 size with a stylish, premium finish for retail and gifting.', 'imgae 2222/paper bag.jpg', '₦65,000', 'per 50'],
+            ['bags', 'Pillow Bags (A4)', 'Pillow boxes with a polished branded finish.', 'imgae 2222/pillow bag a4.jpg', '₦45,000', 'per 50'],
+            ['bags', 'Pillow Bags (A5)', 'Compact branded bags for product gifting.', 'imgae 2222/pill a5.jpg', '₦38,000', 'per 50'],
+            ['bags', 'X-Large Paper Bags', 'Roomy branded bags for larger products.', 'imgae 2222/xtra.jpg', '₦65,000', 'per 50'],
+            ['bags', 'Wine Paper Bags', 'Elegant carriers for bottles and celebration gifts.', 'imgae 2222/wine.jpg', '₦42,000', 'per 50'],
+            ['bags', 'A-Frame Carry Bag', 'A4 bags made for boutiques and campaigns.', 'imgae 2222/barn.jpg', '₦35,000', 'per 50'],
+            ['bags', 'Black Tote Bags', 'Strong reusable tote bags with bold custom branding.', 'imgae 2222/Black-tote-Bag-By-Branda-available-in-Bulk-accross-Nigeria.jpg', '₦35,000', 'per 50'],
+            ['bags', 'Courier Bags', 'Durable A4 courier bags for secure branded deliveries.', 'imgae 2222/cccccc.jpg', '₦32,000', 'per 50'],
+           
+            ['stickers', 'Label Stickers', 'Durable adhesive labels for products, packaging and events.', 'imgae 2222/roll.jpg', '₦17,000', 'per 100'],
+            ['stickers', 'Square Stickers (3.5" X 3.5")', 'Custom square stickers for product tags, branding and packaging.', 'imgae 2222/square.jpg', '₦17,000', 'per 100'],
+            ['stickers', 'Round Stickers (3.5" Diameter)', 'Clean, vivid round stickers for a signature finish.', 'imgae 2222/round.jpg', '₦17,000', 'per 100'],
+            ['stickers', 'Bumper Stickers (7" X 3")', 'Durable bumper stickers for cars, retail branding and event visibility.', 'imgae 2222/bum.jpg', '₦17,000', 'per 100'],
+            ['stickers', 'Transparent Stickers', 'Clear vinyl stickers for premium packaging, branding and product labels.', 'imgae 2222/trans.jpg', '₦17,000', 'per 100'],
+            ['notepads', 'A6 Notepad', 'Order your set of customised notepads by simply uploading your own design. We will print and ship to your doorstep anywhere within Nigeria.', 'imgae 2222/1 not.jpg', '₦45,000', 'per 50'],
+            ['notepads', 'A4 Notepad', 'Select from our amazing collection of free Spiral Notepad templates or upload your own design. We will print and ship to your doorstep anywhere within Nigeria.', 'imgae 2222/2 pad.jpg', '₦45,000', 'per 50'],
+            ['notepads', 'A5 Notepads', 'Select from our amazing collection of free Spiral Notepad templates or upload your own design. We will print and ship to your doorstep anywhere within Nigeria.', 'imgae 2222/a6.jpg', '₦45,000', 'per 50'],
+            ['mugs', 'Simple Mugs', 'Order your Simple Mugs by simply uploading your own design or picking from our amazing collection of free templates.', 'c66749a1-6100-46e8-b5e4-2307f6904f64.png', '₦47,400', 'per 10'],
+            ['clothing', 'Off White T-Shirts', 'Order durable off white T-shirts now by uploading your own design or choosing from our collection of free templates. We will print and ship to your doorstep anywhere in Nigeria.', 'images/White-tshirt.png', '₦12,000', 'per 1'],
+            ['campaign', 'Navy Blue Campaign T-Shirt', 'Order affordable Navy Blue campaign T-shirts now by uploading your own design or choosing from our collection of free templates. We will print and ship to your doorstep anywhere in Nigeria.', 'image 33333/commm1.png', '₦18,500', 'per 1'],
+            ['campaign', 'Black Campaign T-Shirt', 'To order your Black T-shirts, simply upload your own design or choose from our collection of amazing free templates. We will print and deliver to your doorstep anywhere within Nigeria.', 'image 33333/coom2.png', '₦18,500', 'per 1'],
+            ['campaign', 'White Campaign T-Shirts', 'Looking for a simple way to make custom Campaigning & Fundraising items? Printivo will help you create it. With products ranging from T-shirt, posters, caps, stickers, banners etc, you have endless possibilities of standing strong in supporting your preferred political party and brand.', 'image 33333/comm3.png', '₦18,500', 'per 1'],
+            ['brochures', 'Tri-Fold Brochures', 'Tell your story clearly across a compact folded format.', 'images/trifold-brochure-printing.png', '₦28,000', 'per 100'],
+            ['id-cards', 'Plastic ID Cards', 'Professional staff and event identification cards.', 'images/buisness card.png', '₦60,000', 'per 50'],
+            ['gifts', 'Magic Mugs', 'Order your custom Magic Mugs by simply uploading your own design or requesting for design help from our design team. We will print and ship to your doorstep anywhere in Nigeria.', 'coperate/magic.png', '₦47,400', 'per 10'],
+            ['gifts', 'Branded Business Card Cases', 'Order branded business card cases by simply uploading your own design or allowing us to design for you. We will print and ship to your doorstep anywhere within Nigeria.', 'coperate/cases.png', '₦22,500', 'per 100'],
+            ['gifts', 'Mouse Pads', 'Complete your customised Mouse Pad order in 3 simple steps by uploading your design or requesting for design help from our design team. We will print and ship to your doorstep anywhere within Nigeria.', 'coperate/mouse.png', '₦22,500', 'per 100'],
+            ['gifts', 'Water Bottles', 'To order for your customised aluminium Water Bottles, simply upload your design or choose from our amazing collection of free templates. We will produce and ship to your doorstep anywhere within Nigeria.', '', '₦35,000', 'per 50'],
+            ['gifts', 'Block Pads', 'Order Block Pads by simply uploading your own design or allowing us to design for you. We will print and ship to your doorstep anywhere in Nigeria.', 'coperate/blocjyy.jpg', '₦45,000', 'per 50'],
+            ['gifts', 'Metalic Keyrings', 'Print customised Metallic Keyrings for your events and corporate gifting.', 'coperate/keyring.png', '₦35,000', 'per 50'],
+            ['gifts', 'Custom Pens', 'Order branded customised pens as souvenirs for your events and gifts for customers. We will print and ship to your doorstep anywhere within Nigeria.', 'coperate/pen.jpg', '₦45,000', 'per 50'],
+            ['gifts', 'Branded Flashdrives', 'To order your customised Flash Drives simply upload your own design or allow us to design for you. We will print and ship to your doorstep anywhere within Nigeria.', 'coperate/mocky.jpg', '₦35,000', 'per 50'],
+            ['gifts', 'Trucker Caps', 'Order your quality Trucker Caps by simply uploading your design or choosing any of our amazing collection of free templates. We will print and ship to your doorstep anywhere within Nigeria.', 'coperate/trucker.png', '₦35,000', 'per 50'],
+            ['gifts', 'Simple Mugs', 'You can order Simple Mugs by simply uploading your design or picking from any of our amazing free templates. We will print and ship to your doorstep anywhere in Nigeria.', '1661456358_social-media--16.png', '₦47,400', 'per 10'],
+            ['gifts', 'Pop Socket', 'Our stylish pop socket is the perfect accessory for anyone looking for a secure grip and added convenience when using their mobile device. Made from high-quality materials, our pop socket is easy to install and provides a firm grip to prevent accidental drops.', 'coperate/pop.png', '₦35,000', 'per 50'],
+            ['gifts', 'Throw Pillows', 'To order custom Throw Pillows on Printivo.com, simply upload your design or choose from our collection of free templates. We will complete the process by printing and shipping to your doorstep.', 'coperate/throw.png', '₦45,000', 'per 50'],
+            ['gifts', 'Navy Blue Face Towel', 'Our soft and absorbent navy blue face towel is the perfect accessory for your daily skincare routine. Made from high-quality materials, our towel is gentle on your skin and provides efficient absorption of excess water and oils.', 'coperate/navy.jpg', '₦45,000', 'per 50'],
+            ['gifts', 'White Face Towel', 'Our soft and absorbent white face towel is the perfect accessory for your daily skincare routine. Made from high-quality materials, our towel is gentle on your skin and provides efficient absorption of excess water and oils.', 'coperate/towel.jpg', '₦45,000', 'per 50'],
+            ['gifts', 'Black Fanny Packs', 'Elevate your style with our classic black fanny packs. These stylish and practical accessories offer a convenient way to carry your essentials while keeping your hands free. Made with durable materials, our white fanny packs are perfect for travel, outdoor activities, or casual outings.', 'coperate/fahn.jpg', '₦48,000', 'per 50'],
+            ['gifts', 'White Fanny Packs', 'Elevate your style with our classic white fanny packs. These stylish and practical accessories offer a convenient way to carry your essentials while keeping your hands free. Made with durable materials, our white fanny packs are perfect for travel, outdoor activities, or casual outings.', 'imgae 2222/w bag.jpg', '₦48,000', 'per 50'],
+            ['gifts', 'Thermal Bottles', 'To order your customized thermal bottle, simply upload your design or request designs. We will produce and ship to your doorstep anywhere within Nigeria.', 'coperate/therme;l.jpg', '₦35,000', 'per 50'],
+            ['gifts', 'Soft Touch Bottle', 'To order your customized Soft Touch bottles, simply upload your design. We will produce and ship to your doorstep anywhere within Nigeria.', 'coperate/soffff.jpg', '₦35,000', 'per 50'],
+            ['gifts', 'Corporate Gift Packs', 'Thoughtful branded gifts for clients, teams and partners.', 'images/bag brandnng.png', '₦125,000', 'per 10']
         ];
         const grid = document.querySelector('#catalogGrid'); const search = document.querySelector('#search'); const count = document.querySelector('#resultCount'); const title = document.querySelector('#categoryTitle'); const empty = document.querySelector('#emptyState'); let activeFilter = 'all';
         const filterLabels = Object.fromEntries([...document.querySelectorAll('.filter')].map(button => [button.dataset.filter, button.textContent]));
-        function render() { const query = search.value.trim().toLowerCase(); const visible = products.filter(([category, name, description]) => (activeFilter === 'all' || category === activeFilter) && `${name} ${description}`.toLowerCase().includes(query)); grid.innerHTML = visible.map(([, name, description, image, price, unit]) => { const numericPrice = price.replace(/[^0-9]/g, ''); return `<article class="catalog-card"><img src="${image}" alt="${name}" loading="lazy"><div class="card-body"><h3>${name}</h3><p>${description}</p><div class="price"><span>Starting at</span><strong>${price} <small>${unit}</small></strong></div><a href="product.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&price=${numericPrice}&unit=${encodeURIComponent(unit)}">Order Now <span>›</span></a></div></article>`; }).join(''); count.textContent = `${visible.length} product${visible.length === 1 ? '' : 's'}`; title.textContent = activeFilter === 'all' ? 'Featured products' : filterLabels[activeFilter]; empty.classList.toggle('show', visible.length === 0); }
+        const buildProductDescription = (name) => `Order your ${name} by simply uploading your own design or picking from our amazing collection of free templates.`;
+        function render() { const query = search.value.trim().toLowerCase(); const visible = products.filter(([category, name, description]) => (activeFilter === 'all' || category === activeFilter) && `${name} ${description}`.toLowerCase().includes(query)); grid.innerHTML = visible.map(([category, name, description, image, price, unit]) => { const numericPrice = price.replace(/[^0-9]/g, ''); const productDescription = description && description.toLowerCase().includes('order your') ? description : buildProductDescription(name); return `<article class="catalog-card"><img src="${image}" alt="${name}" loading="lazy"><div class="card-body"><h3>${name}</h3><p>${productDescription}</p><div class="price"><span>Starting at</span><strong>${price} <small>${unit}</small></strong></div><a href="product.html?product=${encodeURIComponent(name)}&name=${encodeURIComponent(name)}&category=${encodeURIComponent(category)}&image=${encodeURIComponent(image)}&price=${encodeURIComponent(numericPrice)}&unit=${encodeURIComponent(unit)}">Order Now <span>›</span></a></div></article>`; }).join(''); count.textContent = `${visible.length} product${visible.length === 1 ? '' : 's'}`; title.textContent = activeFilter === 'all' ? 'Featured products' : filterLabels[activeFilter]; empty.classList.toggle('show', visible.length === 0); }
         document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => { document.querySelector('.filter.active').classList.remove('active'); button.classList.add('active'); activeFilter = button.dataset.filter; render(); })); search.addEventListener('input', render); render();
     </script>
 </body>
+
 </html>

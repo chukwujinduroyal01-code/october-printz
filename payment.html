@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="payment.css" />
+  <title>Checkout - October Printz</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="utility-bar">
+      <nav>
+        <a href="products.html">All Products</a>
+        <a href="track order/track.html">Track Orders</a>
+      </nav>
+      <span class="top-help">Need help? <a href="tel:08023628784">08023628784</a></span>
+      <span class="country-pill">NG Nigeria</span>
+    </div>
+
+    <div class="main-bar">
+      <a class="logo" href="index.html" aria-label="October Printz home">
+        <img src="october_printz_logo_transparent.png" alt="October Printz" />
+      </a>
+      <div class="top-search-wrap">
+        <input type="search" placeholder="Search for any product" aria-label="Search for any product" />
+        <span class="search-icon">⌕</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="checkout-page">
+    <h1>Checkout</h1>
+
+    <div class="checkout-layout">
+      <section class="checkout-form-panel">
+        <div class="section-block">
+          <h2>Customer Information</h2>
+          <div class="customer-card">
+            <div class="customer-name">Chukwujindu Royal</div>
+            <div class="customer-email">chukwujinduroyal01@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2>Shipping Information</h2>
+
+          <div class="shipping-location-box" aria-live="polite">
+            <span>MUSHIN</span>
+          </div>
+        </div>
+
+        <div class="section-block payment-section">
+          <h2>Payment</h2>
+
+          <div class="payment-options" role="group" aria-label="Payment method">
+            <button type="button" class="payment-option active" data-method="debit" aria-pressed="true">
+              <span class="payment-icon">💳</span>
+              <span>Debit Card</span>
+            </button>
+            <button type="button" class="payment-option" data-method="bank" aria-pressed="false">
+              <span class="payment-icon">🏦</span>
+              <span>Bank Transfer</span>
+            </button>
+          </div>
+
+          <button type="button" class="pay-now-button">Pay Now</button>
+        </div>
+      </section>
+
+      <aside class="summary-panel">
+        <h3>Order Summary</h3>
+
+        <div class="summary-list">
+          <div class="summary-row">
+            <span>Items</span>
+            <strong>1</strong>
+          </div>
+          <div class="summary-row">
+            <span>Sub Total</span>
+            <strong>N134,400</strong>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <strong>N8,000</strong>
+          </div>
+          <div class="summary-row">
+            <span>Tax</span>
+            <strong>N10,080</strong>
+          </div>
+        </div>
+
+        <div class="total-row">
+          <span>Total</span>
+          <strong>N152,480</strong>
+        </div>
+
+        <button type="button" class="proceed-button">Proceed</button>
+
+        <div class="promo-block">
+          <label for="promoCode">Got a promo code?</label>
+          <div class="promo-input-row">
+            <input id="promoCode" type="text" />
+            <button type="button">Apply</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const paymentOptions = document.querySelectorAll('.payment-option');
+    paymentOptions.forEach((option) => {
+      option.addEventListener('click', () => {
+        paymentOptions.forEach((item) => {
+          const isActive = item === option;
+          item.classList.toggle('active', isActive);
+          item.setAttribute('aria-pressed', String(isActive));
+        });
+      });
+    });
+
+    const proceedButton = document.querySelector('.proceed-button');
+    const paymentSection = document.querySelector('.payment-section');
+
+    if (proceedButton && paymentSection) {
+      proceedButton.addEventListener('click', () => {
+        paymentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        paymentSection.classList.add('visible');
+      });
+    }
+  </script>
+</body>
+</html>

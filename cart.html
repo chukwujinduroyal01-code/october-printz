@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+    <title>Your Cart - October Printz</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <nav class="utility-nav" aria-label="Utility navigation">
+                <a href="products.html">All products</a>
+                <a href="track order/track.html">Track orders</a>
+            </nav>
+            <form class="site-search" role="search">
+                <label class="visually-hidden" for="site-search-input">Search this page</label>
+                <input id="site-search-input" type="search" placeholder="Search" autocomplete="off">
+                <button type="submit" aria-label="Submit search">⌕</button>
+            </form>
+            <div class="header-contact">
+                <span>Need help? Call:<br><a href="tel:08023628784">08023628784</a> or <a href="tel:07065632145">07065632145</a></span>
+                <a class="whatsapp" href="https://wa.me/2348023628784" aria-label="Chat on WhatsApp"><span aria-hidden="true">☎</span></a>
+                <span class="country-pill"><span aria-hidden="true">🇳🇬</span> Nigeria</span>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <a class="brand" href="index.html" aria-label="October Printz home"><img class="header-logo" src="october_printz_logo_transparent.png" alt="October Printz"></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="products.html">All services</a>
+                <a href="project.html">Become a reseller</a>
+                <a href="index.html#work">Our work</a>
+                <a href="index.html#quote">Marketplace</a>
+            </nav>
+            <div class="account-actions">
+                <a class="sign-in" href="index.html#quote">Sign in</a>
+                <a href="index.html#quote">Create account</a>
+                <a class="cart" href="cart.html" aria-label="Shopping cart">🛒</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="products.html">Products</a><span>/</span> Cart</div>
+        <h1>Cart</h1>
+
+        <div class="cart-shell">
+            <section class="cart-main">
+                <div class="cart-banner">
+                    <p id="cartBannerText">The product has been added to your cart.</p>
+                    <a href="payment.html" class="checkout-btn">Checkout <span>›</span></a>
+                </div>
+
+                <div id="cartItems" class="cart-items"></div>
+                <button type="button" class="add-more-btn" onclick="window.location.href='products.html'">Add more Products</button>
+            </section>
+
+            <aside class="suggested-panel">
+                <div class="suggested-header">Instantly add these products to your cart</div>
+                <div id="suggestions" class="suggestions"></div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const cartKey = 'octoberPrintzCart';
+        const cartItems = document.querySelector('#cartItems');
+        const suggestions = document.querySelector('#suggestions');
+
+        const suggestedProducts = [
+            { name: 'Off White T-shirts', image: 'images/White-tshirt.png', price: 7000 },
+            { name: 'Black T-shirts', image: 'images/tshirt.png', price: 6000 },
+            { name: 'Trucker Caps', image: 'coperate/trucker.png', price: 4000 },
+            { name: 'Water Bottles', image: 'images/download.png', price: 6000 },
+            { name: 'Custom Pens', image: 'coperate/pen.jpg', price: 15000 }
+        ];
+
+        const readCart = () => {
+            try {
+                return JSON.parse(localStorage.getItem(cartKey) || '[]');
+            } catch (error) {
+                return [];
+            }
+        };
+
+        const saveCart = (items) => localStorage.setItem(cartKey, JSON.stringify(items));
+        const formatMoney = (value) => `₦${Number(value).toLocaleString('en-NG')}`;
+
+        function addItemToCart(item) {
+            const cart = readCart();
+            const existing = cart.find((entry) => entry.name === item.name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    name: item.name,
+                    image: item.image,
+                    price: Number(item.price),
+                    quantity: 1,
+                    unit: item.unit || 'Custom order'
+                });
+            }
+            saveCart(cart);
+            renderCart();
+        }
+
+        function renderSuggestions() {
+            suggestions.innerHTML = suggestedProducts.map((item) => `
+                <div class="suggestion-item">
+                    <div class="suggestion-thumb"><img src="${item.image}" alt="${item.name}"></div>
+                    <div class="suggestion-info">
+                        <h3>${item.name}</h3>
+                        <span>${formatMoney(item.price)}</span>
+                    </div>
+                    <button type="button" class="suggestion-button" data-add="${encodeURIComponent(JSON.stringify(item))}">Add to Cart</button>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('[data-add]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const item = JSON.parse(decodeURIComponent(button.dataset.add));
+                    addItemToCart(item);
+                });
+            });
+        }
+
+        function renderCart() {
+            const items = readCart();
+
+            if (!items.length) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <h2>Your cart is empty</h2>
+                        <p>Add a product to see it here.</p>
+                        <a href="products.html">Browse products</a>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = items.map((item, index) => `
+                    <article class="cart-item">
+                        <div class="product-thumb"><img src="${item.image || 'images/buisness card.jpg'}" alt="${item.name}"></div>
+                        <div class="product-copy">
+                            <h2>${item.name}</h2>
+                            <div class="quantity-row">
+                                <label>Quantity</label>
+                                <select data-qty="${index}">
+                                    ${[1,2,3,4,5,6,7,8,9,10].map((value) => `<option value="${value}" ${value === Number(item.quantity) ? 'selected' : ''}>${value}</option>`).join('')}
+                                </select>
+                            </div>
+                            <div class="price-row">
+                                <span class="price">${formatMoney(item.price * item.quantity)}</span>
+                            </div>
+                        </div>
+                        <div class="cart-actions">
+                            <button type="button" class="delete-btn" data-remove="${index}">Delete</button>
+                        </div>
+                    </article>
+                    <div class="product-specs">
+                        <h3>Product Specifications</h3>
+                        <div class="spec-grid">
+                            <div class="spec-row"><span>Design</span><strong>Custom Upload</strong></div>
+                            <div class="spec-row"><span>Paper Thickness</span><strong>300gsm Stock</strong></div>
+                            <div class="spec-row"><span>Corners</span><strong>Square Corner</strong></div>
+                            <div class="spec-row"><span>Shipping</span><strong>Standard</strong></div>
+                        </div>
+                    </div>
+                `).join('');
+
+                document.querySelectorAll('[data-qty]').forEach((select) => {
+                    select.addEventListener('change', () => {
+                        const updated = readCart();
+                        const index = Number(select.dataset.qty);
+                        updated[index].quantity = Math.max(1, Number(select.value) || 1);
+                        saveCart(updated);
+                        renderCart();
+                    });
+                });
+
+                document.querySelectorAll('[data-remove]').forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const updated = readCart();
+                        updated.splice(Number(button.dataset.remove), 1);
+                        saveCart(updated);
+                        renderCart();
+                    });
+                });
+            }
+
+            const total = items.reduce((sum, item) => sum + Number(item.price) * Number(item.quantity), 0);
+            document.getElementById('cartBannerText').textContent = items.length ? `${items.length} product${items.length > 1 ? 's' : ''} in your cart` : 'The product has been added to your cart.';
+            const checkoutButton = document.querySelector('.checkout-btn');
+            if (checkoutButton) {
+                checkoutButton.style.opacity = items.length ? '1' : '0.6';
+                checkoutButton.setAttribute('aria-disabled', items.length ? 'false' : 'true');
+            }
+        }
+
+        renderSuggestions();
+        renderCart();
+    </script>
+</body>
+</html>

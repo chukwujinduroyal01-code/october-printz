@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="cost.css">
 	<style>.utility-bar > a { border: 1px solid var(--line); border-radius: 30px; padding: 10px 16px; }</style>
-	<style>.calculator-header,.utility-bar,.main-bar { background: #00b3aa; color: #fff; }.calculator-header a,.utility-bar a,.main-bar a { color: #fff; }.utility-bar > a,.country { border-color: rgba(255,255,255,.7); background: #fff; color: #183b5f; }.main-bar { background: #fff; color: #183b5f; }.main-bar a { color: #183b5f; }.main-bar nav a:hover { color: #db7d81; }.logo { background: #fff; padding: 9px 14px; }</style>
+	<style>.calculator-header,.utility-bar,.main-bar { background: #00b3aa; color: #fff; }.calculator-header a,.utility-bar a,.main-bar a { color: #fff; }.utility-bar > a,.country { border-color: rgba(255,255,255,.7); background: #fff; color: #183b5f; }.main-bar { background: #fff; color: #183b5f; }.main-bar a { color: #183b5f; }.main-bar nav a:hover { color: #00b3aa; }.logo { background: #fff; padding: 9px 14px; }</style>
 	<title>Cost Calculator - October Printz</title>
 </head>
 <body>
@@ -25,7 +25,7 @@
 				<label for="category">Select a category</label><select id="category"><option value="cards">Business Cards</option><option value="letterhead">Letterhead</option><option value="envelopes">Envelopes</option><option value="greeting-cards">Greeting Cards</option><option value="flyers">Flyers &amp; Handbills</option><option value="bags">Bags</option><option value="wedding">Wedding Stationery</option><option value="stickers">Stickers</option><option value="notepads">Notepads and Jotters</option><option value="mugs">Mugs</option><option value="banners">Banners &amp; Large Format</option><option value="posters">Posters</option><option value="folders">Presentation Folders</option><option value="brochures">Brochures</option><option value="id-cards">ID Cards</option><option value="gifts">Corporate Gifts</option></select>
 				<div class="form-row"><div><label for="product">What product do you want to order?</label><select id="product"></select></div><div><label for="quantity">Quantity</label><div class="quantity"><button type="button" id="minus" aria-label="Decrease quantity">−</button><input id="quantity" type="number" min="1" value="100"><button type="button" id="plus" aria-label="Increase quantity">+</button></div></div></div>
 				<fieldset><legend>Add-ons</legend><label class="check-row"><input type="checkbox" value="2500" data-addon="Express production"><span>Express production</span><b>+ ₦2,500</b></label><label class="check-row"><input type="checkbox" value="1500" data-addon="Premium finishing"><span>Premium finishing</span><b>+ ₦1,500</b></label></fieldset>
-				<div class="form-note">Your estimate is a guide. We will confirm the final price and delivery details before production.</div><button class="submit-button" type="submit">Send quote request <span>↗</span></button><p class="sent-message" id="sentMessage">Your quote request is ready. We will be in touch shortly.</p>
+				<div class="form-note">Your estimate is a guide. We will confirm the final price and delivery details before production.</div><button class="submit-button" type="submit">Send quote request <span>↗</span></button><p class="sent-message" id="sentMessage"></p>
 			</form>
 			<aside class="quote-preview"><div class="preview-top"><span>YOUR PREVIEW</span><span class="spark">✦</span></div><div class="preview-image"><canvas id="magicCanvas" aria-hidden="true"></canvas><img id="productImage" src="../images/buisness card.jpg" alt="Business cards preview"></div><div class="preview-details"><p class="preview-label">Estimated total</p><strong id="total">₦15,100</strong><div class="summary"><span id="summaryProduct">Business cards</span><span id="summaryQuantity">100 pieces</span></div><div class="summary"><span>Production estimate</span><span id="summaryTime">3-5 days</span></div></div><div class="preview-foot">Small details. Big impression.</div></aside>
 		</section>
@@ -39,21 +39,47 @@
 			flyers: { image: '../images/flyer.jpg', options: [['Flyers & handbills', 185]], time: '3-5 days' },
 			bags: { image: '../images/bag branding.jpeg', options: [['Branded paper bags', 700]], time: '5-7 days' },
 			wedding: { image: '../images/download (1).jpg', options: [['Wedding invitations', 650]], time: '5-7 days' },
-			stickers: { image: '../images/download.jpg', options: [['Label stickers', 170], ['Round stickers', 170]], time: '3-5 days' },
-			notepads: { image: '../images/printed.jpg', options: [['Notepads', 450], ['Jotters', 850]], time: '5-7 days' },
+			stickers: { image: '../images/download.jpg', options: [['Label stickers', 170], ['Square Stickers (3.5" X 3.5")', 170], ['Round stickers', 170], ['Bumper Stickers (7" X 3")', 170]], time: '3-5 days' },
+			notepads: { image: '../images/printed.jpg', options: [['A6 Notepad', 450], ['A4 Notepad', 850], ['A5 Notepads', 950]], time: '5-7 days' },
 			mugs: { image: '../c66749a1-6100-46e8-b5e4-2307f6904f64.png', options: [['Simple mugs', 4740]], time: '5-7 days' },
 			banners: { image: '../images/big rollup banner.png', options: [['Roll-up banners', 78000], ['Large format banner', 95000]], time: '5-7 days' },
 			posters: { image: '../images/postcard.jpg', options: [['A3 posters', 900]], time: '3-5 days' },
 			folders: { image: '../images/trifold-brochure-printing.png', options: [['Presentation folders', 650]], time: '5-7 days' },
 			brochures: { image: '../images/trifold-brochure-printing.png', options: [['Tri-fold brochures', 280]], time: '3-5 days' },
 			'id-cards': { image: '../images/buisness card.png', options: [['Plastic ID cards', 1200]], time: '5-7 days' },
-			gifts: { image: '../images/bag brandnng.png', options: [['Corporate gift packs', 12500]], time: '7-10 days' }
+			gifts: { image: '../images/bag brandnng.png', options: [['Corporate gift packs', 12500]], time: '7-10 days' },
+			clothing: { image: '../images/White-tshirt.png', options: [['Off White T-Shirts', 12000]], time: '3-5 days' },
+			campaign: { image: '../images/campaign-navy-shirt.svg', options: [['Navy Blue Campaign T-Shirt', 18500], ['Black Campaign T-Shirt', 18500], ['White Campaign T-Shirts', 18500]], time: '3-5 days' }
 		};
+		const params = new URLSearchParams(window.location.search);
 		const category = document.querySelector('#category'); const product = document.querySelector('#product'); const quantity = document.querySelector('#quantity'); const image = document.querySelector('#productImage'); const total = document.querySelector('#total'); const magicCanvas = document.querySelector('#magicCanvas'); const formatMoney = value => `₦${value.toLocaleString('en-NG')}`;
-		function drawMagic() { const context = magicCanvas.getContext('2d'); magicCanvas.width = 520; magicCanvas.height = 360; const gradient = context.createLinearGradient(0, 0, 520, 360); gradient.addColorStop(0, '#00b3aa'); gradient.addColorStop(1, '#183b5f'); context.fillStyle = gradient; context.fillRect(0, 0, 520, 360); context.fillStyle = '#f4f0e4'; context.font = '700 34px Space Grotesk'; context.fillText('OCTOBER', 34, 72); context.font = '700 17px DM Sans'; context.fillText('PRINT IT. MAKE IT YOURS.', 36, 104); context.strokeStyle = '#db7d81'; context.lineWidth = 8; context.beginPath(); context.arc(410, 110, 54, 0, Math.PI * 2); context.stroke(); context.fillStyle = '#fff'; context.font = '700 14px DM Sans'; context.fillText('✦', 401, 116); }
+		function drawMagic() { const context = magicCanvas.getContext('2d'); magicCanvas.width = 520; magicCanvas.height = 360; const gradient = context.createLinearGradient(0, 0, 520, 360); gradient.addColorStop(0, '#00b3aa'); gradient.addColorStop(1, '#183b5f'); context.fillStyle = gradient; context.fillRect(0, 0, 520, 360); context.fillStyle = '#f4f0e4'; context.font = '700 34px Space Grotesk'; context.fillText('OCTOBER', 34, 72); context.font = '700 17px DM Sans'; context.fillText('PRINT IT. MAKE IT YOURS.', 36, 104); context.strokeStyle = '#00b3aa'; context.lineWidth = 8; context.beginPath(); context.arc(410, 110, 54, 0, Math.PI * 2); context.stroke(); context.fillStyle = '#fff'; context.font = '700 14px DM Sans'; context.fillText('✦', 401, 116); }
 		function updateProducts() { const data = products[category.value]; product.innerHTML = data.options.map(([name]) => `<option>${name}</option>`).join(''); image.src = data.image; image.alt = `${data.options[0][0]} preview`; document.querySelector('#summaryTime').textContent = data.time; updateQuote(); }
 		function updateQuote() { const data = products[category.value]; const selected = data.options[product.selectedIndex] || data.options[0]; const count = Math.max(1, Number(quantity.value) || 1); const addons = [...document.querySelectorAll('[data-addon]:checked')].reduce((sum, item) => sum + Number(item.value), 0); total.textContent = formatMoney(selected[1] * count + addons); document.querySelector('#summaryProduct').textContent = selected[0]; document.querySelector('#summaryQuantity').textContent = `${count.toLocaleString()} pieces`; }
-		category.addEventListener('change', updateProducts); product.addEventListener('change', updateQuote); quantity.addEventListener('input', updateQuote); document.querySelector('#plus').addEventListener('click', () => { quantity.value = Number(quantity.value) + 10; updateQuote(); }); document.querySelector('#minus').addEventListener('click', () => { quantity.value = Math.max(1, Number(quantity.value) - 10); updateQuote(); }); document.querySelectorAll('[data-addon]').forEach(item => item.addEventListener('change', updateQuote)); document.querySelector('#quoteForm').addEventListener('submit', event => { event.preventDefault(); document.querySelector('#sentMessage').classList.add('show'); }); drawMagic(); updateProducts();
+		function applyStoredSelection() {
+			const selectedCategory = params.get('category');
+			const selectedProduct = params.get('product');
+			const selectedQty = params.get('quantity');
+			if (selectedCategory && products[selectedCategory]) {
+				category.value = selectedCategory;
+			}
+			updateProducts();
+			if (selectedProduct) {
+				const options = products[category.value].options.map(([name]) => name);
+				const matchingIndex = options.findIndex(name => name.toLowerCase() === selectedProduct.toLowerCase());
+				if (matchingIndex >= 0) {
+					product.selectedIndex = matchingIndex;
+				}
+			}
+			if (selectedQty) {
+				const numericQty = Number(selectedQty);
+				if (!Number.isNaN(numericQty) && numericQty > 0) {
+					quantity.value = numericQty;
+				}
+			}
+			updateQuote();
+		}
+		category.addEventListener('change', updateProducts); product.addEventListener('change', updateQuote); quantity.addEventListener('input', updateQuote); document.querySelector('#plus').addEventListener('click', () => { quantity.value = Number(quantity.value) + 10; updateQuote(); }); document.querySelector('#minus').addEventListener('click', () => { quantity.value = Math.max(1, Number(quantity.value) - 10); updateQuote(); }); document.querySelectorAll('[data-addon]').forEach(item => item.addEventListener('change', updateQuote)); document.querySelector('#quoteForm').addEventListener('submit', event => { event.preventDefault(); const trackingNumber = `OP-${new Date().getFullYear()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`; const trackingLink = `../track order/track.html?trackingNumber=${encodeURIComponent(trackingNumber)}&status=production`; const shippingLink = `../track order/track.html?trackingNumber=${encodeURIComponent(trackingNumber)}&status=shipping`; const sentMessage = document.querySelector('#sentMessage'); sentMessage.innerHTML = `Your order has been received. Tracking number: <strong>${trackingNumber}</strong> <a href="${trackingLink}">Track your order</a> <a href="${shippingLink}">On its way</a>`; sentMessage.classList.add('show'); }); drawMagic(); applyStoredSelection();
 	</script>
 </body>
 </html>

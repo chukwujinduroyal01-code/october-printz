@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="product.css">
-    <style>.site-header,.utility-bar,.main-bar { background: #00b3aa; color: #fff; }.site-header a,.utility-bar a,.main-bar a { color: #fff; }.country { border-color: rgba(255,255,255,.7); background: #fff; color: #183b5f; }.main-bar { background: #fff; color: #183b5f; }.main-bar a { color: #183b5f; }.main-bar nav a:hover { color: #d77d81; }.logo { background: #fff; padding: 9px 14px; }</style>
+    <style>.site-header,.utility-bar,.main-bar { background: #00b3aa; color: #fff; }.site-header a,.utility-bar a,.main-bar a { color: #fff; }.country { border-color: rgba(255,255,255,.7); background: #fff; color: #183b5f; }.main-bar { background: #fff; color: #183b5f; }.main-bar a { color: #183b5f; }.main-bar nav a:hover { color: #00b3aa; }.logo { background: #fff; padding: 9px 14px; }</style>
     <title>Product Details - October Printz</title>
 </head>
 <body>
@@ -20,32 +20,75 @@
         <section class="product-hero">
             <img class="product-image" id="productImage" src="images/buisness card.jpg" alt="Two-Sided Business Cards">
             <div class="product-copy">
-                <h1 id="productName">Two-Sided Business Cards</h1>
-                <p id="productDescription">Order your Two-sided Business Cards by simply uploading your own design or picking from our amazing collection of free templates.</p>
-                <p class="spec-copy"><strong>Material:</strong><br><span id="material">3.5 by 2 inches, 300 gsm matte card paper stock with 600 gsm options</span></p>
-                <p class="spec-copy"><strong>Finishing:</strong><br><span id="finishing">Matte Lamination and round corner options</span></p>
+                <h1 id="productName">Simple Mugs</h1>
+                <p id="productDescription">Order your Simple Mugs by simply uploading your own design or picking from our amazing collection of free templates.</p>
                 <div class="order-controls"><label for="quantity">Quantity</label><div class="order-line"><select id="quantity"><option value="1">100</option><option value="2">200</option><option value="5">500</option><option value="10">1,000</option></select><button class="order-button" id="orderButton" type="button">Order Now <span>›</span></button></div></div>
             </div>
         </section>
         <section class="detail-grid">
-            <div class="detail-section"><h2>Specifications</h2><div class="options-grid"><div class="option-group"><h3>Paper Thickness</h3><div class="option-list"><button class="option selected" type="button"><img src="images/buisness card.jpg" alt="300gsm stock"><span>300gsm Stock</span></button><button class="option" type="button"><img src="images/buisness card.png" alt="600gsm stock"><span>Super Thick 600gsm</span></button></div></div><div class="option-group"><h3>Corners</h3><div class="option-list"><button class="option selected" type="button"><img src="images/buisness card.jpg" alt="Square corner"><span>Square Corner</span></button><button class="option" type="button"><img src="images/buisness card.png" alt="Rounded corner"><span>Rounded Corner</span></button></div></div></div></div>
-            <div class="detail-section shipping"><h2>Shipping</h2><div class="option-group"><h3>Shipping</h3><div class="option-list"><button class="option selected" type="button"><img src="images/packaging.jpg" alt="Standard shipping"><span>Standard</span></button><button class="option" type="button"><img src="images/bag branding.jpeg" alt="Express shipping"><span>Express</span></button></div></div></div>
+            <div class="detail-section shipping"><h2>Shipping</h2><div class="option-group"><h3>Shipping</h3><div class="option-list"><button class="option selected" type="button"><img src="https://printivo.s3.us-west-2.amazonaws.com/files/addons/1570526064-standard-shipping-png" alt="Fast standard shipping"><span>Fast Standard</span></button><button class="option" type="button"><img src="https://printivo.s3.us-west-2.amazonaws.com/files/addons/1570526064-standard-shipping-png" alt="Express shipping"><span>Express</span></button></div></div></div>
         </section>
         <section class="faq-reviews"><div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><span>When will i receive my order?</span><button type="button">+</button></div><div class="faq-answer">Most standard orders are ready within 3-5 working days.</div><div class="faq-item"><span>What is the minimum quantity of cards?</span><button type="button">+</button></div><div class="faq-answer">The minimum quantity is 100 pieces.</div><div class="faq-item"><span>How do I place an order on your website?</span><button type="button">+</button></div><div class="faq-answer">Choose your quantity and select Order Now to continue.</div><div class="faq-item"><span>How can I see a physical sample?</span><button type="button">+</button></div><div class="faq-answer">Contact the studio to request a physical sample before production.</div><div class="faq-item"><span>What type of paper lamination do you offer?</span><button type="button">+</button></div><div class="faq-answer">We offer matte lamination and other finishing options on request.</div></div></section>
     </main>
-    <div class="sticky-order"><div class="sticky-product"><img id="stickyImage" src="images/buisness card.jpg" alt=""><div><strong id="stickyName">Two-Sided Business Cards</strong><span>300gsm Stock | Square Corner | Standard</span></div></div><strong class="sticky-total" id="total">₦15,100</strong><button class="sticky-button" id="stickyButton" type="button">Order Now <span>›</span></button></div>
+    <div class="sticky-order"><div class="sticky-product"><img id="stickyImage" src="images/buisness card.jpg" alt=""><div><strong id="stickyName">Two-Sided Business Cards</strong><span>Fast standard shipping</span></div></div><strong class="sticky-total" id="total">₦15,100</strong><button class="sticky-button" id="stickyButton" type="button">Order Now <span>›</span></button></div>
     <script>
         const params = new URLSearchParams(location.search);
-        const productName = params.get('name') || 'Two-Sided Business Cards';
-        const productImage = params.get('image') || 'images/buisness card.jpg';
-        const basePrice = Number(params.get('price')) || 15100;
-        const unit = params.get('unit') || 'per 100';
+        const productCategory = params.get('category') || 'cards';
+        const productName = params.get('product') || params.get('name') || 'Simple Mugs';
+        const productImage = params.get('image') || 'c66749a1-6100-46e8-b5e4-2307f6904f64.png';
+        const basePrice = Number(params.get('price')) || 47400;
+        const unit = params.get('unit') || 'per 10';
+        const addToCart = () => {
+            const cartKey = 'octoberPrintzCart';
+            const cart = JSON.parse(localStorage.getItem(cartKey) || '[]');
+            const quantityValue = Number(quantity.value) || 1;
+            const existing = cart.find((item) => item.name === productName);
+            if (existing) existing.quantity += quantityValue;
+            else cart.push({ name: productName, image: productImage, price: basePrice, unit, quantity: quantityValue });
+            localStorage.setItem(cartKey, JSON.stringify(cart));
+        };
+        const productCopyMap = {
+            cards: {
+                description: 'Order your Business Cards by simply uploading your own design or picking from our amazing collection of free templates.',
+                material: '3.5 by 2 inches, 300 gsm matte card paper stock with 600 gsm options',
+                finishing: 'Matte Lamination and round corner options'
+            },
+            mugs: {
+                description: 'Order your Simple Mugs by simply uploading your own design or picking from our amazing collection of free templates.',
+                material: '11 oz ceramic mug, premium white finish with durable print quality',
+                finishing: 'Gloss or matte protective coating'
+            },
+            clothing: {
+                description: 'Order your T-Shirts by simply uploading your own design or picking from our amazing collection of free templates.',
+                material: 'Premium cotton blend with soft-touch finish for everyday wear',
+                finishing: 'High-quality printing and durable wash-ready finish'
+            },
+            campaign: {
+                description: 'Order your Campaign Materials by simply uploading your own design or picking from our amazing collection of free templates.',
+                material: 'High quality campaign-ready fabric and paper stock depending on the product',
+                finishing: 'Full-colour print with premium finish options'
+            },
+            bags: {
+                description: 'Order your Branded Bags by simply uploading your own design or picking from our amazing collection of free templates.',
+                material: 'Durable paper or fabric bag stock with premium branded finish',
+                finishing: 'Premium print finish and sturdy carry construction'
+            },
+            default: {
+                description: 'Order your product by simply uploading your own design or picking from our amazing collection of free templates.',
+                material: 'Premium material selected for the best result and durability',
+                finishing: 'Professional finishing for a sharp, lasting presentation'
+            }
+        };
+        const buildProductDescription = (name) => `Order your ${name} by simply uploading your own design or picking from our amazing collection of free templates.`;
+        const thisProduct = productCopyMap[productCategory] || productCopyMap.default;
+        thisProduct.description = thisProduct.description || buildProductDescription(productName);
         document.title = `${productName} - October Printz`;
         document.querySelector('#productName').textContent = productName;
         document.querySelector('#stickyName').textContent = productName;
         document.querySelector('#productImage').src = productImage;
         document.querySelector('#productImage').alt = productName;
         document.querySelector('#stickyImage').src = productImage;
+        document.querySelector('#productDescription').textContent = thisProduct.description;
         const quantity = document.querySelector('#quantity');
         const total = document.querySelector('#total');
         function updateTotal() { total.textContent = `₦${(basePrice * Number(quantity.value)).toLocaleString('en-NG')}`; }
@@ -55,8 +98,14 @@
             option.classList.add('selected');
         })));
         document.querySelectorAll('.faq-item').forEach(item => item.addEventListener('click', () => item.classList.toggle('open')));
-        document.querySelector('#orderButton').addEventListener('click', () => location.href = `cost calculator/cost.html?product=${encodeURIComponent(productName)}`);
-        document.querySelector('#stickyButton').addEventListener('click', () => location.href = `cost calculator/cost.html?product=${encodeURIComponent(productName)}`);
+        document.querySelector('#orderButton').addEventListener('click', () => {
+            addToCart();
+            location.href = `project.html?product=${encodeURIComponent(productName)}&name=${encodeURIComponent(productName)}&image=${encodeURIComponent(productImage)}&price=${encodeURIComponent(basePrice)}&unit=${encodeURIComponent(unit)}`;
+        });
+        document.querySelector('#stickyButton').addEventListener('click', () => {
+            addToCart();
+            location.href = `project.html?product=${encodeURIComponent(productName)}&name=${encodeURIComponent(productName)}&image=${encodeURIComponent(productImage)}&price=${encodeURIComponent(basePrice)}&unit=${encodeURIComponent(unit)}`;
+        });
         updateTotal();
     </script>
 </body>

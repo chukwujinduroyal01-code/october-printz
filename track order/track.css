@@ -92,3 +92,16 @@ footer a { color: var(--navy); font-weight: 700; }
 	.contact-note { align-items: flex-start; text-align: left; }
 	footer { display: grid; gap: 8px; }
 }
+
+@media (max-width: 380px) {
+	.main-bar { padding: 0 5vw; }
+	.logo img { width: 124px; }
+	.tracking-shell { margin-top: 38px; }
+	h1 { font-size: 34px; }
+	.tracking-form { padding: 16px; }
+	.progress-heading { font-size: 9px; }
+	.progress-preview { padding-left: 12px; padding-right: 12px; }
+	.steps strong { font-size: 9px; }
+	.steps small { font-size: 8px; }
+	.contact-note { font-size: 11px; }
+}

@@ -1,0 +1,6 @@
+Shipping
+
+Use these exact section names on the product detail page.
+
+Example structure:
+- Shipping

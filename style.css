@@ -14,13 +14,21 @@
 .paper-message { display: none; }
 .sun-stamp { padding: 15px; }
 .sun-stamp strong { display: block; font: 700 17px/.92 'Space Grotesk', sans-serif; }
-.trust-section { background: var(--paper); }
-.trust-section img { display: block; width: 100%; height: auto; }
+.trust-section { padding: 58px 6.3vw 64px; background: var(--paper); }
+.trust-inner { max-width: 1320px; margin: 0 auto; }
+.trust-inner h2 { margin: 0 0 32px; color: #1e3d61; font: 600 42px/1.1 'Space Grotesk', sans-serif; letter-spacing: -2px; }
+.trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; }
+.trust-item { display: grid; grid-template-columns: 78px 1fr; gap: 22px; align-items: start; }
+.trust-icon { width: 62px; height: 62px; display: grid; place-items: center; color: #1e3d61; border: 3px solid #1e3d61; border-radius: 50%; font-size: 34px; line-height: 1; }
+.trust-item:nth-child(2) .trust-icon { color: var(--brand); border-radius: 10px 10px 20px 20px; }
+.trust-item:nth-child(3) .trust-icon { color: var(--brand); border-radius: 8px; }
+.trust-item h3 { margin: 0 0 12px; color: #1e3d61; font: 700 19px/1.25 'DM Sans', sans-serif; }
+.trust-item p { margin: 0; color: #718198; font-size: 16px; line-height: 1.55; }
 .products-section { padding: 76px 6.3vw 92px; background: var(--soft, #f4f0e4); border-top: 1px solid rgba(35,31,32,.12); }
 .products-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
 .products-heading h2 { margin: 0; color: var(--ink); font: 600 clamp(32px, 3.5vw, 48px)/1 'Space Grotesk', sans-serif; letter-spacing: -2px; }
 .products-heading h2::after { content: ''; display: inline-block; width: 42px; height: 8px; margin: 0 0 5px 13px; background: var(--brand); }
-.products-link { color: #d9787c; font-size: 14px; font-weight: 700; }
+.products-link { color: var(--brand); font-size: 14px; font-weight: 700; }
 .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
 .product-card { min-width: 0; overflow: hidden; background: #fff; border-top: 5px solid var(--brand); box-shadow: 0 10px 24px rgba(35, 31, 32, .1); transition: transform .2s, box-shadow .2s; }
 .product-card:nth-child(3n + 2) { border-top-color: var(--coral); }
@@ -45,3 +53,44 @@
 .site-search button:hover, .site-search button:focus-visible { background: var(--brand); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .search-highlight { outline: 3px solid var(--brand); outline-offset: 8px; }
+
+.sticker-showcase { padding: 34px 6.3vw 0; background: #f6f5f1; }
+.sticker-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 46px; align-items: start; }
+.sticker-card { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.sticker-card h3 { margin: 0 0 18px; color: #2c3d52; font: 700 23px/1.25 'DM Sans', sans-serif; letter-spacing: -.5px; }
+.sticker-card p { margin: 0 0 24px; max-width: 420px; color: #4a5058; font: 400 16px/1.6 'DM Sans', sans-serif; }
+.sticker-card .button { min-height: 52px; padding: 0 32px; font-size: 14px; }
+.sticker-card--wide { grid-column: 1; margin-top: 20px; }
+.sticker-preview { width: 100%; max-width: 620px; height: 220px; margin: 0 0 18px; background: linear-gradient(125deg, #b8c3d0 0%, #a2b0bb 25%, #dfe7ee 100%); position: relative; overflow: hidden; border: 1px solid rgba(35,31,32,.08); }
+.sticker-preview::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.08)); }
+.sticker-sample { position: absolute; left: 52%; top: 48%; transform: translate(-50%, -50%); background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(2, 2, 2, 0.1); padding: 18px 28px; font: 700 32px/1 'Space Grotesk', sans-serif; letter-spacing: -.5px; color: #1f6c3d; }
+.sticker-sample::before { content: '◉'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 24px; color: #d98736; }
+.sticker-sample::after { content: ''; position: absolute; right: 18px; top: 50%; width: 18px; height: 18px; transform: translateY(-50%) rotate(42deg); background: #b84242; border-radius: 50%; }
+@media (max-width: 900px) { .sticker-grid { grid-template-columns: 1fr 1fr; } .sticker-card--wide { grid-column: auto; } }
+@media (max-width: 700px) { .sticker-showcase { padding: 26px 8vw 0; } .sticker-grid { grid-template-columns: 1fr; gap: 30px; } .sticker-card h3 { font-size: 22px; } .sticker-card p { font-size: 15px; } .sticker-card .button { width: 100%; justify-content: center; } .sticker-preview { height: 180px; } .sticker-sample { font-size: 26px; } }
+
+@media (max-width: 700px) {
+	.trust-section { padding: 46px 8vw 52px; }
+	.trust-inner h2 { font-size: 32px; }
+	.trust-grid { grid-template-columns: 1fr; gap: 28px; }
+	.trust-item { grid-template-columns: 62px 1fr; gap: 16px; }
+	.trust-item h3 { font-size: 17px; }
+	.trust-item p { font-size: 14px; }
+}
+
+@media (max-width: 420px) {
+	.header-bottom { padding: 0 5vw; }
+	.header-logo { width: 128px; }
+	.hero { padding: 42px 7vw 36px; }
+	.hero h1 { max-width: 100%; font-size: 48px; line-height: .98; letter-spacing: -2px; }
+	.hero-intro { font-size: 14px; }
+	.hero-actions { align-items: stretch; flex-direction: column; gap: 18px; }
+	.hero-actions .button { width: 100%; }
+	.hero-art { min-height: 350px; margin-top: 14px; transform: scale(.68); width: 147%; }
+	.products-heading { flex-direction: column; gap: 12px; }
+	.products-link { align-self: flex-start; }
+	.product-grid { grid-template-columns: 1fr; }
+	.product-card > img { height: 210px; }
+	.product-info { min-height: 190px; }
+	.site-footer { text-align: center; }
+}

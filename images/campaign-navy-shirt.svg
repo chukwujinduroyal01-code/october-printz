@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#d9d9d9"/>
+  <g transform="translate(90,20)">
+    <path d="M153 52 L233 20 L285 80 L335 80 L335 130 L512 130 L512 80 L560 80 L615 20 L695 52 L668 180 L590 170 L590 667 C590 706 559 736 520 736 H210 C171 736 140 706 140 667 L140 170 L62 180 Z" fill="#1c2e58"/>
+    <path d="M110 350 L34 420 L56 730 C56 760 80 784 110 784 H230 L230 350 Z" fill="#1c2e58"/>
+    <path d="M690 350 L766 420 L744 730 C744 760 720 784 690 784 H570 L570 350 Z" fill="#1c2e58"/>
+    <path d="M235 0 L306 58 L318 126 L274 126 L218 74 Z" fill="#c68b4a"/>
+    <path d="M565 0 L494 58 L482 126 L526 126 L582 74 Z" fill="#c68b4a"/>
+    <path d="M190 215 L510 215 L510 390 C510 454 458 506 394 506 H206 C166 506 190 454 190 390 Z" fill="#1c2e58" opacity="0.2"/>
+    <rect x="250" y="165" width="250" height="300" rx="8" fill="#1f365a"/>
+    <rect x="290" y="194" width="170" height="170" rx="12" fill="#f3f3f3"/>
+    <path d="M300 210 L340 210 L340 250 L300 250 Z" fill="#f35252"/>
+    <path d="M370 210 L410 210 L410 250 L370 250 Z" fill="#f35252"/>
+    <path d="M340 240 L370 240 L370 280 L340 280 Z" fill="#f35252"/>
+    <path d="M340 210 L370 210 L370 250 L340 250 Z" fill="#14b544"/>
+    <circle cx="380" cy="268" r="24" fill="#f3f3f3"/>
+    <path d="M340 330 L390 330 L390 370 L340 370 Z" fill="#f35252"/>
+    <path d="M390 330 L451 330 L451 370 L390 370 Z" fill="#14b544"/>
+    <text x="410" y="390" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" fill="#f3f3f3">BE</text>
+    <text x="410" y="445" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="#f3f3f3">OBIDENT</text>
+    <text x="410" y="495" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#f3f3f3">2023</text>
+  </g>
+</svg>
